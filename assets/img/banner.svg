@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E2415"/>
+      <stop offset="55%" stop-color="#14301C"/>
+      <stop offset="100%" stop-color="#1B4225"/>
+    </linearGradient>
+    <linearGradient id="ribbon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2EBC35"/>
+      <stop offset="100%" stop-color="#9FD54C"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="700" fill="url(#bgGrad)"/>
+  <!-- watermark leaf, echoing the SelvaViva mark -->
+  <g opacity="0.10" transform="translate(980,90) rotate(18)">
+    <path d="M0,420 C-40,260 10,90 220,0 C300,150 260,340 90,430 C60,440 20,435 0,420 Z" fill="#9FD54C"/>
+    <path d="M0,420 C60,270 110,140 220,0" stroke="#0E2415" stroke-width="6" fill="none"/>
+  </g>
+  <!-- info ribbon motif, echoing the on-air lower third -->
+  <polygon points="0,560 1600,500 1600,540 0,600" fill="url(#ribbon)" opacity="0.9"/>
+  <polygon points="0,600 1600,540 1600,552 0,612" fill="#0E2415" opacity="0.5"/>
+</svg>

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "alcantarillado-norte-loreto",
+    "categoria": "GAD Municipal",
+    "colorCategoria": "verde",
+    "destacada": true,
+    "titulo": "Avanza el sistema de alcantarillado pluvial y sanitario para el sector norte de Loreto",
+    "resumen": "El plan maestro impulsado por el GAD Municipal de Loreto avanza en su etapa de obra civil, con miras a garantizar agua segura y saneamiento para las familias del sector norte del cantón.",
+    "cuerpo": [
+      "El equipo técnico del GAD Municipal de Loreto continúa con los trabajos del plan maestro de alcantarillado pluvial y sanitario, una obra clave para mejorar la calidad de vida de los barrios ubicados al norte del cantón.",
+      "Durante el recorrido de verificación se constató el avance en la construcción de los tanques de almacenamiento y las redes de conexión domiciliaria, con personal técnico y obreros trabajando en distintos frentes de la obra.",
+      "Las autoridades municipales reiteraron su compromiso de mantener informada a la ciudadanía sobre cada etapa del proyecto, en el marco de la política de transparencia y rendición de cuentas del cantón Loreto.",
+      "Se espera que, una vez concluida esta fase, los beneficios lleguen de forma directa a cientos de familias que hasta ahora dependían de sistemas de saneamiento alternativos."
+    ],
+    "imagen": "assets/img/noticias/alcantarillado.svg",
+    "fecha": "2026-07-18",
+    "autor": "Angel Arregui · ADN Medio Digital"
+  },
+  {
+    "id": "matttseval-centro-revision-vehicular",
+    "categoria": "MATTTSEVAL",
+    "colorCategoria": "rio",
+    "destacada": false,
+    "titulo": "MATTTSEVAL coloca la primera piedra del nuevo centro de revisión vehicular",
+    "resumen": "La Mancomunidad de Tránsito Aguarico Loreto dio inicio a la construcción de su nuevo centro de revisión vehicular, un paso más hacia la modernización del servicio en la región.",
+    "cuerpo": [
+      "En un acto público, autoridades de la Mancomunidad de Tránsito Aguarico Loreto (MATTTSEVAL) colocaron la primera piedra del nuevo centro de revisión técnica vehicular, que beneficiará a los cantones que forman parte de la mancomunidad.",
+      "El proyecto busca ofrecer un servicio más ágil y cercano a los propietarios de vehículos de la zona, evitando desplazamientos largos hacia otras ciudades para cumplir con este trámite obligatorio.",
+      "Durante el evento, los representantes de MATTTSEVAL presentaron un informe de rendición de cuentas sobre la gestión reciente de la institución, reafirmando su compromiso con la movilidad segura en la Amazonía."
+    ],
+    "imagen": "assets/img/noticias/matttseval.svg",
+    "fecha": "2026-07-15",
+    "autor": "Angel Arregui · ADN Medio Digital"
+  },
+  {
+    "id": "matriculas-juan-pablo-ii",
+    "categoria": "Educación",
+    "colorCategoria": "lima",
+    "destacada": false,
+    "titulo": "Unidad Educativa Juan Pablo II abre su proceso de matrículas para el nuevo periodo lectivo",
+    "resumen": "La institución fiscomisional informa fechas, requisitos y valores de pensión para las familias interesadas en matricular a sus hijos para el próximo año lectivo.",
+    "cuerpo": [
+      "La Unidad Educativa Fiscomisional Juan Pablo II anunció el cronograma oficial de matrículas para el nuevo periodo lectivo, invitando a los padres de familia del cantón Loreto a acercarse a las instalaciones dentro de las fechas establecidas.",
+      "Entre los requisitos solicitados se encuentran los documentos de identificación del estudiante, el certificado de aprobación del año anterior y la ficha socioeconómica actualizada.",
+      "La institución destacó su propuesta educativa centrada en valores, formación humana y acompañamiento cercano a las familias de la comunidad amazónica."
+    ],
+    "imagen": "assets/img/noticias/matriculas.svg",
+    "fecha": "2026-07-10",
+    "autor": "Angel Arregui · ADN Medio Digital"
+  },
+  {
+    "id": "voces-selva-christian-luan",
+    "categoria": "Voces de la Selva",
+    "colorCategoria": "musgo",
+    "destacada": false,
+    "titulo": "Voces de la Selva conversa con el artista Christian Luan sobre su proceso creativo en la Amazonía",
+    "resumen": "En un nuevo episodio del programa insignia de Selva Viva Digital, el artista Christian Luan comparte cómo su entorno amazónico influye en su obra y su identidad como creador.",
+    "cuerpo": [
+      "En esta edición de Voces de la Selva, el programa que recorre las historias humanas detrás de la vida amazónica, conversamos con el artista Christian Luan sobre su trayectoria y su vínculo con el territorio.",
+      "Luan describió cómo los sonidos, colores y ritmos de la selva se convierten en materia prima para su trabajo creativo, y reflexionó sobre el papel del arte como puente entre las comunidades amazónicas y el resto del país.",
+      "El episodio completo, con el testimonio íntegro del artista, está disponible en el canal de YouTube de ADN Medio Digital."
+    ],
+    "imagen": "assets/img/noticias/voces-selva.svg",
+    "fecha": "2026-07-05",
+    "autor": "Angel Arregui · Voces de la Selva"
+  }
+]

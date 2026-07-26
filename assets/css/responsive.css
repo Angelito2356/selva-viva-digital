@@ -1,0 +1,59 @@
+/* =========================================================
+   SELVA VIVA DIGITAL — responsive.css
+   ========================================================= */
+
+/* Tablet grande: muestra el tagline junto al logo */
+@media (min-width: 860px) {
+  .nav__marca .nav__tagline { display: inline-block; }
+}
+
+/* Tablet / móvil: menú hamburguesa */
+@media (max-width: 860px) {
+  .nav__toggle { display: inline-block; }
+
+  .nav__links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--papel);
+    border-bottom: 3px solid var(--verde-musgo);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 10px 20px 20px;
+    display: none;
+  }
+  .nav__links.abierto { display: flex; }
+  .nav__links a {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .topbar__lugar span:not(.emoji-solo) { display: none; }
+
+  .hero__tarjeta { grid-template-columns: 1fr; }
+  .hero__media { min-height: 220px; }
+
+  .noticias-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .programa-banda .contenedor { grid-template-columns: 1fr; }
+  .programa-banda__visual { min-height: 160px; }
+
+  .categorias-rapidas { grid-template-columns: repeat(2, 1fr); }
+
+  .footer .contenedor { grid-template-columns: 1fr 1fr; }
+
+  .contacto-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .noticias-grid { grid-template-columns: 1fr; }
+  .categorias-rapidas { grid-template-columns: 1fr 1fr; }
+  .footer .contenedor { grid-template-columns: 1fr; }
+  .sobre-franja .contenedor { flex-direction: column; text-align: center; }
+  .hero__contenido { padding: 24px; }
+  .seccion { padding: 40px 0; }
+  .articulo__meta { flex-direction: column; gap: 4px; }
+  .compartir { flex-wrap: wrap; }
+}
