@@ -1,11 +1,11 @@
 // SELVA VIVA DIGITAL — noticias.js
-// Carga assets/data/noticias.json y construye el ticker, las tarjetas de
-// noticias, los filtros por categoría y la página de reportaje individual.
+// Carga assets/data/noticias.json y construye: ticker, héroe "Lo último",
+// secciones de portada organizadas por FORMATO, página de archivo con
+// filtros por formato, y página de reportaje individual.
 //
 // Nota para Angel: este archivo usa fetch(), por lo que el sitio necesita
-// servirse por http (Netlify, o un servidor local como `npx serve`).
-// Abrir index.html con doble clic (file://) bloquea la carga del JSON
-// por seguridad del navegador.
+// servirse por http (Netlify, o Live Server / npx serve en local).
+// Abrir index.html con doble clic (file://) bloquea la carga del JSON.
 
 const RUTA_DATOS = 'assets/data/noticias.json';
 
@@ -13,6 +13,23 @@ const MESES = [
   'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
   'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
 ];
+
+// Orden y títulos de las secciones por formato en portada y archivo.
+const FORMATOS_ORDEN = ['Reportaje', 'Entrevista', 'Cobertura', 'Noticia Local', 'Producción Audiovisual'];
+const FORMATO_TITULO = {
+  'Reportaje': 'Reportajes',
+  'Entrevista': 'Entrevistas',
+  'Cobertura': 'Coberturas',
+  'Noticia Local': 'Noticias Locales',
+  'Producción Audiovisual': 'Producción Audiovisual'
+};
+const FORMATO_SLUG = {
+  'Reportaje': 'reportaje',
+  'Entrevista': 'entrevista',
+  'Cobertura': 'cobertura',
+  'Noticia Local': 'noticia-local',
+  'Producción Audiovisual': 'produccion-audiovisual'
+};
 
 function formatearFecha(iso) {
   const [anio, mes, dia] = iso.split('-').map(Number);
@@ -31,17 +48,27 @@ async function obtenerNoticias() {
   }
 }
 
-function tarjetaHTML(n) {
-  return `
-    <article class="card">
-      <a class="card__media" href="reportaje.html?id=${n.id}">
+/**
+ * Genera el HTML de una tarjeta de noticia.
+ * media:true  -> tarjeta con imagen (usada en archivo.html y relacionadas)
+ * media:false -> tarjeta compacta sin imagen (usada en secciones de portada)
+ */
+function tarjetaHTML(n, { media = true } = {}) {
+  const mediaHTML = media
+    ? `
+      <a class="tarjeta__media" href="reportaje.html?id=${n.id}">
         <img src="${n.imagen}" alt="${n.titulo}" loading="lazy">
-      </a>
-      <div class="card__cuerpo">
-        <span class="etiqueta etiqueta--${n.colorCategoria}">${n.categoria}</span>
+      </a>`
+    : '';
+
+  return `
+    <article class="tarjeta">
+      ${mediaHTML}
+      <div class="tarjeta__cuerpo">
+        <span class="etiqueta etiqueta--${n.colorFormato}">${n.formato}</span>
         <h3><a href="reportaje.html?id=${n.id}">${n.titulo}</a></h3>
-        <p class="card__resumen">${n.resumen}</p>
-        <p class="card__meta">${formatearFecha(n.fecha)} · ${n.autor}</p>
+        <p class="tarjeta__resumen">${n.resumen}</p>
+        <p class="tarjeta__meta">${formatearFecha(n.fecha)} · ${n.autor}</p>
       </div>
     </article>
   `;
@@ -52,41 +79,77 @@ function iniciarTicker(noticias) {
   if (!pista || noticias.length === 0) return;
   pista.innerHTML = noticias
     .slice(0, 5)
-    .map((n) => `<span>${n.categoria}:</span> <a href="reportaje.html?id=${n.id}">${n.titulo}</a>`)
-    .join(' &nbsp; ');
+    .map((n) => `<span>${n.formato}:</span> <a href="reportaje.html?id=${n.id}">${n.titulo}</a>`)
+    .join(' &nbsp; &nbsp; · &nbsp; &nbsp; ');
 }
 
+/**
+ * Portada: rellena el bloque "Lo último" (destacada) y las secciones
+ * agrupadas por formato debajo del video del héroe.
+ */
 function iniciarInicio(noticias) {
-  const heroEl = document.querySelector('[data-hero]');
-  const gridEl = document.querySelector('[data-grid-inicio]');
-  if (!heroEl && !gridEl) return;
+  const destacadaEl = document.querySelector('[data-destacada]');
+  const seccionesEl = document.querySelector('[data-secciones-formato]');
+  if (!destacadaEl && !seccionesEl) return;
   if (noticias.length === 0) return;
 
   const destacada = noticias.find((n) => n.destacada) || noticias[0];
-  const resto = noticias.filter((n) => n.id !== destacada.id).slice(0, 3);
 
-  if (heroEl) {
-    heroEl.innerHTML = `
-      <div class="hero__tarjeta">
-        <a class="hero__media" href="reportaje.html?id=${destacada.id}">
+  if (destacadaEl) {
+    destacadaEl.innerHTML = `
+      <div class="seccion-canal__cabecera">
+        <div class="seccion-canal__titulo"><h2>Lo último</h2></div>
+      </div>
+      <article class="destacada">
+        <a class="destacada__media" href="reportaje.html?id=${destacada.id}">
           <img src="${destacada.imagen}" alt="${destacada.titulo}">
         </a>
-        <div class="hero__contenido">
-          <span class="etiqueta etiqueta--${destacada.colorCategoria}">${destacada.categoria}</span>
-          <h1><a href="reportaje.html?id=${destacada.id}" style="color:inherit;">${destacada.titulo}</a></h1>
+        <div class="destacada__cuerpo">
+          <span class="etiqueta etiqueta--${destacada.colorFormato}">${destacada.formato}</span>
+          <h2><a href="reportaje.html?id=${destacada.id}">${destacada.titulo}</a></h2>
           <p>${destacada.resumen}</p>
-          <p class="hero__meta">${formatearFecha(destacada.fecha)} · ${destacada.autor}</p>
+          <p class="destacada__meta">${formatearFecha(destacada.fecha)} · ${destacada.autor}</p>
           <a class="btn btn-primario" href="reportaje.html?id=${destacada.id}">Leer reportaje completo</a>
         </div>
-      </div>
+      </article>
     `;
   }
 
-  if (gridEl) {
-    gridEl.innerHTML = resto.map(tarjetaHTML).join('');
+  if (seccionesEl) {
+    const presentes = FORMATOS_ORDEN.filter((f) => noticias.some((n) => n.formato === f && n.id !== destacada.id));
+
+    if (!presentes.length) {
+      seccionesEl.innerHTML = '';
+      return;
+    }
+
+    seccionesEl.innerHTML = presentes
+      .map((formato, i) => {
+        const items = noticias.filter((n) => n.formato === formato && n.id !== destacada.id).slice(0, 3);
+        if (!items.length) return '';
+        const slug = FORMATO_SLUG[formato];
+        const fondoAlterno = i % 2 === 1 ? ' style="background:#0e1310;"' : '';
+        return `
+          <section class="seccion-canal" id="seccion-${slug}"${fondoAlterno}>
+            <div class="contenedor">
+              <div class="seccion-canal__cabecera">
+                <div class="seccion-canal__titulo"><h2>${FORMATO_TITULO[formato]}</h2></div>
+                <a class="ver-todas" href="noticias.html?formato=${encodeURIComponent(formato)}">Ver todas →</a>
+              </div>
+              <div class="grid-tarjetas">${items.map((n) => tarjetaHTML(n, { media: false })).join('')}</div>
+            </div>
+          </section>
+        `;
+      })
+      .join('');
   }
 }
 
+/**
+ * Página de archivo (noticias.html): filtros por formato + grid con imagen.
+ * Soporta preselección vía ?formato=Reportaje en la URL (usado por los
+ * enlaces "Ver todas →" de la portada).
+ */
 function iniciarPaginaNoticias(noticias) {
   const gridEl = document.querySelector('[data-grid-noticias]');
   const filtrosEl = document.querySelector('[data-filtros]');
@@ -97,19 +160,27 @@ function iniciarPaginaNoticias(noticias) {
     return;
   }
 
-  const categorias = ['Todas', ...new Set(noticias.map((n) => n.categoria))];
+  const formatosPresentes = FORMATOS_ORDEN.filter((f) => noticias.some((n) => n.formato === f));
+  const params = new URLSearchParams(window.location.search);
+  const formatoParam = params.get('formato');
+  const formatoInicial = formatoParam && formatosPresentes.includes(formatoParam) ? formatoParam : 'Todas';
 
-  filtrosEl.innerHTML = categorias
+  const opciones = ['Todas', ...formatosPresentes];
+
+  filtrosEl.innerHTML = opciones
     .map(
-      (cat, i) => `<button class="filtro-btn" type="button" data-cat="${cat}" aria-pressed="${i === 0}">${cat}</button>`
+      (f) =>
+        `<button class="filtro-btn" type="button" data-formato="${f}" aria-pressed="${f === formatoInicial}">${
+          f === 'Todas' ? 'Todas' : FORMATO_TITULO[f]
+        }</button>`
     )
     .join('');
 
-  function render(cat) {
-    const lista = cat === 'Todas' ? noticias : noticias.filter((n) => n.categoria === cat);
+  function render(formato) {
+    const lista = formato === 'Todas' ? noticias : noticias.filter((n) => n.formato === formato);
     gridEl.innerHTML = lista.length
-      ? lista.map(tarjetaHTML).join('')
-      : '<p class="estado-vacio">No hay noticias en esta categoría todavía.</p>';
+      ? lista.map((n) => tarjetaHTML(n, { media: true })).join('')
+      : '<p class="estado-vacio">No hay noticias en este formato todavía.</p>';
   }
 
   filtrosEl.addEventListener('click', (ev) => {
@@ -117,12 +188,17 @@ function iniciarPaginaNoticias(noticias) {
     if (!btn) return;
     filtrosEl.querySelectorAll('.filtro-btn').forEach((b) => b.setAttribute('aria-pressed', 'false'));
     btn.setAttribute('aria-pressed', 'true');
-    render(btn.dataset.cat);
+    render(btn.dataset.formato);
   });
 
-  render('Todas');
+  render(formatoInicial);
 }
 
+/**
+ * Página de reportaje individual. Si la noticia trae un ID de video de
+ * YouTube en el campo "video", se muestra el video embebido; si no,
+ * se muestra la imagen (compatibilidad con las noticias actuales).
+ */
 function iniciarReportaje(noticias) {
   const contenedor = document.querySelector('[data-articulo]');
   if (!contenedor) return;
@@ -145,37 +221,46 @@ function iniciarReportaje(noticias) {
 
   document.title = `${noticia.titulo} · Selva Viva Digital`;
 
+  const mediaHTML = noticia.video
+    ? `<div class="video-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/${noticia.video}" title="${noticia.titulo}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>`
+    : `<img src="${noticia.imagen}" alt="${noticia.titulo}">`;
+
   contenedor.innerHTML = `
-    <div class="articulo__cabecera">
-      <span class="etiqueta etiqueta--${noticia.colorCategoria}">${noticia.categoria}</span>
+    <div class="articulo-hero__cabecera">
+      <span class="etiqueta etiqueta--${noticia.colorFormato}">${noticia.formato}</span>
       <h1>${noticia.titulo}</h1>
-      <p class="articulo__meta">
+      <p class="articulo-hero__meta">
         <span>${formatearFecha(noticia.fecha)}</span>
         <span>${noticia.autor}</span>
       </p>
     </div>
-    <div class="articulo__media">
-      <img src="${noticia.imagen}" alt="${noticia.titulo}">
-    </div>
-    <div class="articulo__cuerpo">
-      ${noticia.cuerpo.map((p) => `<p>${p}</p>`).join('')}
-    </div>
-    <div class="compartir">
-      <span>Compartir:</span>
-      <a target="_blank" rel="noopener" href="https://api.whatsapp.com/send?text=${encodeURIComponent(noticia.titulo + ' - ' + window.location.href)}">WhatsApp</a>
-      <a target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}">Facebook</a>
-    </div>
+    <div class="articulo-hero__media">${mediaHTML}</div>
   `;
+
+  const cuerpoEl = document.querySelector('[data-articulo-cuerpo]');
+  if (cuerpoEl) {
+    cuerpoEl.innerHTML = `
+      <div class="articulo__cuerpo">
+        ${noticia.cuerpo.map((p) => `<p>${p}</p>`).join('')}
+      </div>
+      <div class="compartir">
+        <span>Compartir:</span>
+        <a target="_blank" rel="noopener" href="https://api.whatsapp.com/send?text=${encodeURIComponent(noticia.titulo + ' - ' + window.location.href)}">WhatsApp</a>
+        <a target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}">Facebook</a>
+        <a target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(noticia.titulo)}">X</a>
+      </div>
+    `;
+  }
 
   const relacionadasEl = document.querySelector('[data-relacionadas]');
   if (relacionadasEl) {
     const relacionadas = noticias
       .filter((n) => n.id !== noticia.id)
-      .sort((a, b) => (a.categoria === noticia.categoria ? -1 : 1))
+      .sort((a, b) => (a.formato === noticia.formato ? -1 : 1))
       .slice(0, 3);
     relacionadasEl.innerHTML = `
       <h2>Más noticias</h2>
-      <div class="noticias-grid">${relacionadas.map(tarjetaHTML).join('')}</div>
+      <div class="grid-tarjetas">${relacionadas.map((n) => tarjetaHTML(n, { media: true })).join('')}</div>
     `;
   }
 }

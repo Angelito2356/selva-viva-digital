@@ -17,17 +17,13 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
-<body>
+<body class="oscuro">
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <div class="topbar">
   <div class="contenedor">
     <div class="topbar__lugar"><span class="emoji-solo">📍</span> <span>Loreto · Orellana · Ecuador</span></div>
-    <div class="topbar__redes">
-      <a href="https://www.youtube.com/@ADNMedioDigital" target="_blank" rel="noopener">YouTube</a>
-      <a href="#" target="_blank" rel="noopener">Facebook</a>
-      <a href="#" target="_blank" rel="noopener">Instagram</a>
-    </div>
+    <div class="topbar__redes"><!-- Rellenado por social-links.js --></div>
   </div>
 </div>
 
@@ -41,7 +37,7 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav__links">
-      <li><a href="index.html">Inicio</a></li>
+      <li><a href="index.html" aria-current="page">Inicio</a></li>
       <li><a href="noticias.html">Noticias</a></li>
       <li><a href="index.html#voces-de-la-selva">Voces de la Selva</a></li>
       <li><a href="contacto.html">Contacto</a></li>
@@ -58,26 +54,47 @@
 
 <main id="contenido">
 
-  <section class="hero contenedor" data-hero>
-    <!-- La noticia destacada se genera con noticias.js -->
+  <section class="hero-video">
+    <div class="contenedor hero-video__grid">
+      <div>
+        <div class="video-wrapper">
+          <!-- 🔧 Angel: reemplaza VIDEO_ID_AQUI por el ID real de tu video/en vivo de YouTube -->
+          <iframe src="https://www.youtube-nocookie.com/embed/PAtOBP7N678" title="Selva Viva Digital en YouTube" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="hero-video__texto">
+        <span class="badge-vivo"><span class="badge-vivo__punto"></span> Al aire en Selva Viva Digital</span>
+        <h1>El Pulso Amazónico de Loreto, Orellana</h1>
+        <p>Reportajes, entrevistas, coberturas y producción audiovisual desde el corazón de la Amazonía ecuatoriana. Periodismo hecho en el territorio, para el territorio.</p>
+        <div class="hero-video__acciones">
+          <a class="btn btn-suscribir" href="https://www.youtube.com/@ADNMedioDigital?sub_confirmation=1" target="_blank" rel="noopener">▶ Suscríbete en YouTube</a>
+          <a class="btn btn-fantasma" href="noticias.html">Ver todo el contenido</a>
+        </div>
+      </div>
+    </div>
+    <div class="contenedor categorias-pill">
+      <a class="pildora" href="#seccion-reportaje"><span class="pildora__punto" style="background:var(--verde-selva);"></span> Reportajes</a>
+      <a class="pildora" href="#seccion-entrevista"><span class="pildora__punto" style="background:var(--lima-brote);"></span> Entrevistas</a>
+      <a class="pildora" href="#seccion-cobertura"><span class="pildora__punto" style="background:var(--rio);"></span> Coberturas</a>
+      <a class="pildora" href="#seccion-noticia-local"><span class="pildora__punto" style="background:var(--ambar);"></span> Noticias Locales</a>
+      <a class="pildora" href="#seccion-produccion-audiovisual"><span class="pildora__punto" style="background:var(--rojo-directo);"></span> Producción Audiovisual</a>
+    </div>
   </section>
 
-  <section class="seccion contenedor">
-    <div class="seccion__cabecera">
-      <h2>Más noticias</h2>
-      <a class="ver-todas" href="noticias.html">Ver todas →</a>
-    </div>
-    <div class="noticias-grid" data-grid-inicio>
-      <!-- Tarjetas generadas con noticias.js -->
-    </div>
+  <section class="seccion-canal contenedor" data-destacada>
+    <!-- "Lo último" se genera con noticias.js -->
   </section>
+
+  <div data-secciones-formato>
+    <!-- Secciones por formato (Reportajes, Entrevistas, Coberturas...) generadas con noticias.js -->
+  </div>
 
   <section class="programa-banda" id="voces-de-la-selva">
     <div class="contenedor">
       <div>
         <span class="etiqueta etiqueta--musgo">Programa insignia</span>
         <h2>Voces de la Selva</h2>
-        <p>El programa que cuenta las historias humanas detrás de la vida amazónica, y recorre los caminos del arte la cultura, en cada comunidad dentro del territorio y que son contadas por quienes las viven en carne propia.</p>
+        <p>El programa que recorre las historias humanas detrás de la vida amazónica: cultura, arte, comunidad y territorio, contadas por quienes las viven en Loreto y Orellana.</p>
         <a class="btn btn-claro" href="https://www.youtube.com/@ADNMedioDigital" target="_blank" rel="noopener">Ver episodios en YouTube</a>
       </div>
       <div class="programa-banda__visual">
@@ -86,22 +103,22 @@
     </div>
   </section>
 
-  <section class="seccion contenedor">
-    <div class="seccion__cabecera">
-      <h2>Explora por categoría</h2>
-    </div>
-    <div class="categorias-rapidas">
-      <a class="categoria-item" href="noticias.html">GAD Municipal<small>Obra pública y gestión</small></a>
-      <a class="categoria-item" href="noticias.html">MATTTSEVAL<small>Tránsito y movilidad</small></a>
-      <a class="categoria-item" href="noticias.html">En la Comunidad<small>Comunidad educativa</small></a>
-      <a class="categoria-item" href="noticias.html">Voces de la Selva<small>Cultura y comunidad</small></a>
+  <section class="franja-redes">
+    <div class="contenedor">
+      <div>
+        <h2>Síguenos en todas nuestras plataformas</h2>
+        <p>Contenido nuevo cada semana desde la Amazonía ecuatoriana.</p>
+      </div>
+      <div class="redes-botones" data-red-botones><!-- Rellenado por social-links.js --></div>
     </div>
   </section>
 
   <section class="sobre-franja">
     <div class="contenedor">
-      <img src="assets/img/logo.png" alt="" width="70" style="flex:none;">
-      <p><strong>Selva Viva Digital</strong> es un medio digital de comunicación y periodismo audiovisual con base en Loreto, Orellana. Cubrimos la gestión pública, la vida institucional y las historias de la Amazonía ecuatoriana desde el territorio.</p>
+      <div class="sobre-tarjeta">
+        <img src="assets/img/logo.png" alt="" width="72" style="flex:none;">
+        <p><strong>Selva Viva Digital</strong> es un medio digital de comunicación y periodismo audiovisual con base en Loreto, Orellana. Cubrimos la gestión pública, la vida institucional y las historias de la Amazonía ecuatoriana desde el territorio.</p>
+      </div>
     </div>
   </section>
 
@@ -112,12 +129,7 @@
     <div class="footer__marca">
       <img src="assets/img/logo.png" alt="Selva Viva Digital">
       <p>Periodismo digital y comunicación institucional desde la Amazonía ecuatoriana.</p>
-      <div class="footer__social">
-        <a href="https://www.youtube.com/@ADNMedioDigital" target="_blank" rel="noopener">YouTube</a>
-        <a href="#" target="_blank" rel="noopener">Facebook</a>
-        <a href="#" target="_blank" rel="noopener">Instagram</a>
-        <a href="#" target="_blank" rel="noopener">TikTok</a>
-      </div>
+      <div class="footer__social"><!-- Rellenado por social-links.js --></div>
     </div>
     <div>
       <h4>Navegación</h4>
@@ -129,16 +141,13 @@
     </div>
     <div>
       <h4>Contacto</h4>
-      <ul>
-        <li><a href="mailto:contacto@selvaviva.digital">contacto@selvaviva.digital</a></li>
-        <li><a href="https://wa.me/593000000000" target="_blank" rel="noopener">WhatsApp</a></li>
-        <li>Loreto, Orellana, Ecuador</li>
-      </ul>
+      <ul class="footer__contacto-lista"><!-- Rellenado por social-links.js --></ul>
     </div>
   </div>
   <div class="footer__legal">© <span data-anio></span> Selva Viva Digital · ADN Medio Digital. Todos los derechos reservados.</div>
 </footer>
 
+<script src="assets/js/social-links.js"></script>
 <script src="assets/js/noticias.js"></script>
 <script src="assets/js/main.js"></script>
 </body>

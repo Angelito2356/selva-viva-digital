@@ -9,21 +9,24 @@
  */
 
 const SOCIAL_LINKS = {
-  youtube:   { url: "https://www.youtube.com/@ADNMedioDigital", label: "YouTube" },
-  facebook:  { url: "https://facebook.com/selvavivadigital",    label: "Facebook" },
-  instagram: { url: "https://instagram.com/selvaviva.ec",       label: "Instagram" },
-  tiktok:    { url: "https://tiktok.com/@adnmediodigital",      label: "TikTok" },
-  x:         { url: "https://x.com/adnmediodigital",            label: "X" },
-  whatsapp:  { url: "https://wa.me/593999316910",               label: "+593 99 931 6910" },
-  email:     { url: "mailto:info.adnmediodigital@gmail.com",    label: "info.adnmediodigital@gmail.com" }
+  youtube:   { url: "https://www.youtube.com/@ADNMedioDigital", label: "YouTube",  short: "YT" },
+  facebook:  { url: "https://facebook.com/selvavivadigital",    label: "Facebook", short: "FB" },
+  instagram: { url: "https://instagram.com/selvaviva.ec",       label: "Instagram",short: "IG" },
+  tiktok:    { url: "https://tiktok.com/@adnmediodigital",      label: "TikTok",   short: "TT" },
+  x:         { url: "https://x.com/adnmediodigital",            label: "X",        short: "X" },
+  whatsapp:  { url: "https://wa.me/593999316910",               label: "+593 99 931 6910", short: "WA" },
+  email:     { url: "mailto:info.adnmediodigital@gmail.com",    label: "info.adnmediodigital@gmail.com", short: "Correo" }
 };
 
 /**
  * Rellena TODOS los contenedores que coincidan con el selector
  * (usa querySelectorAll, así funciona aunque el bloque se repita
  * varias veces en la misma página, como pasa en contacto.html).
+ *
+ * labelField: "label" (texto completo, ej. franja-redes) o
+ *             "short" (2-3 letras, ej. íconos circulares del footer)
  */
-function renderSocialLinks(selector, platforms) {
+function renderSocialLinks(selector, platforms, { labelField = "label" } = {}) {
   const containers = document.querySelectorAll(selector);
   if (!containers.length) return;
 
@@ -33,11 +36,31 @@ function renderSocialLinks(selector, platforms) {
       if (!link) return "";
       const isMailto = link.url.startsWith("mailto:");
       const attrs = isMailto ? "" : ' target="_blank" rel="noopener"';
-      return `<a href="${link.url}"${attrs}>${link.label}</a>`;
+      return `<a href="${link.url}"${attrs} aria-label="${link.label}">${link[labelField]}</a>`;
     })
     .join("");
 
   containers.forEach((c) => (c.innerHTML = html));
+}
+
+/**
+ * Botones tipo "píldora" grandes (.red-boton) para la franja de redes,
+ * con una clase modificadora por plataforma para el color de hover
+ * definido en style.css (.red-boton--youtube, .red-boton--facebook, etc.)
+ */
+function renderRedBotones(selector, platforms) {
+  const container = document.querySelector(selector);
+  if (!container) return;
+
+  const html = platforms
+    .map((key) => {
+      const link = SOCIAL_LINKS[key];
+      if (!link) return "";
+      return `<a class="red-boton red-boton--${key}" href="${link.url}" target="_blank" rel="noopener">${link.label}</a>`;
+    })
+    .join("");
+
+  container.innerHTML = html;
 }
 
 /**
@@ -78,8 +101,9 @@ function renderInfoContacto(selector, opts = {}) {
 
 // Se ejecuta automáticamente en cuanto carga cada página
 document.addEventListener("DOMContentLoaded", () => {
-  renderSocialLinks(".topbar__redes", ["youtube", "facebook", "instagram"]);
-  renderSocialLinks(".footer__social", ["youtube", "facebook", "instagram", "tiktok", "x"]);
+  renderSocialLinks(".topbar__redes", ["youtube", "facebook", "instagram", "tiktok", "x"], { labelField: "label" });
+  renderSocialLinks(".footer__social", ["youtube", "facebook", "instagram", "tiktok", "x"], { labelField: "short" });
+  renderRedBotones("[data-red-botones]", ["youtube", "facebook", "instagram", "tiktok", "x", "whatsapp"]);
   renderContactList(".footer__contacto-lista");
   renderInfoContacto(".info-contacto__lista");
 });

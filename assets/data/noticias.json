@@ -3,6 +3,8 @@
     "id": "alcantarillado-norte-loreto",
     "categoria": "GAD Municipal",
     "colorCategoria": "verde",
+    "formato": "Reportaje",
+    "colorFormato": "verde",
     "destacada": true,
     "titulo": "Avanza el sistema de alcantarillado pluvial y sanitario para el sector norte de Loreto",
     "resumen": "El plan maestro impulsado por el GAD Municipal de Loreto avanza en su etapa de obra civil, con miras a garantizar agua segura y saneamiento para las familias del sector norte del cantón.",
@@ -13,6 +15,7 @@
       "Se espera que, una vez concluida esta fase, los beneficios lleguen de forma directa a cientos de familias que hasta ahora dependían de sistemas de saneamiento alternativos."
     ],
     "imagen": "assets/img/noticias/alcantarillado.svg",
+    "video": "",
     "fecha": "2026-07-18",
     "autor": "Angel Arregui · ADN Medio Digital"
   },
@@ -20,6 +23,8 @@
     "id": "matttseval-centro-revision-vehicular",
     "categoria": "MATTTSEVAL",
     "colorCategoria": "rio",
+    "formato": "Cobertura",
+    "colorFormato": "rio",
     "destacada": false,
     "titulo": "MATTTSEVAL coloca la primera piedra del nuevo centro de revisión vehicular",
     "resumen": "La Mancomunidad de Tránsito Aguarico Loreto dio inicio a la construcción de su nuevo centro de revisión vehicular, un paso más hacia la modernización del servicio en la región.",
@@ -29,6 +34,7 @@
       "Durante el evento, los representantes de MATTTSEVAL presentaron un informe de rendición de cuentas sobre la gestión reciente de la institución, reafirmando su compromiso con la movilidad segura en la Amazonía."
     ],
     "imagen": "assets/img/noticias/matttseval.svg",
+    "video": "",
     "fecha": "2026-07-15",
     "autor": "Angel Arregui · ADN Medio Digital"
   },
@@ -36,6 +42,8 @@
     "id": "matriculas-juan-pablo-ii",
     "categoria": "Educación",
     "colorCategoria": "lima",
+    "formato": "Noticia Local",
+    "colorFormato": "ambar",
     "destacada": false,
     "titulo": "Unidad Educativa Juan Pablo II abre su proceso de matrículas para el nuevo periodo lectivo",
     "resumen": "La institución fiscomisional informa fechas, requisitos y valores de pensión para las familias interesadas en matricular a sus hijos para el próximo año lectivo.",
@@ -45,6 +53,7 @@
       "La institución destacó su propuesta educativa centrada en valores, formación humana y acompañamiento cercano a las familias de la comunidad amazónica."
     ],
     "imagen": "assets/img/noticias/matriculas.svg",
+    "video": "",
     "fecha": "2026-07-10",
     "autor": "Angel Arregui · ADN Medio Digital"
   },
@@ -52,6 +61,8 @@
     "id": "voces-selva-christian-luan",
     "categoria": "Voces de la Selva",
     "colorCategoria": "musgo",
+    "formato": "Entrevista",
+    "colorFormato": "lima",
     "destacada": false,
     "titulo": "Voces de la Selva conversa con el artista Christian Luan sobre su proceso creativo en la Amazonía",
     "resumen": "En un nuevo episodio del programa insignia de Selva Viva Digital, el artista Christian Luan comparte cómo su entorno amazónico influye en su obra y su identidad como creador.",
@@ -61,6 +72,7 @@
       "El episodio completo, con el testimonio íntegro del artista, está disponible en el canal de YouTube de ADN Medio Digital."
     ],
     "imagen": "assets/img/noticias/voces-selva.svg",
+    "video": "",
     "fecha": "2026-07-05",
     "autor": "Angel Arregui · Voces de la Selva"
   }
