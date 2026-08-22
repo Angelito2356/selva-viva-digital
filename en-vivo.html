@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>En Vivo · Selva Viva Digital</title>
+<meta name="description" content="Transmisión en vivo de Selva Viva Digital, el medio digital de la Amazonía ecuatoriana desde Loreto, Orellana.">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.15/hls.min.js"></script>
+</head>
+<body class="oscuro">
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<div class="topbar">
+  <div class="contenedor">
+    <div class="topbar__lugar"><span class="emoji-solo">📍</span> <span>Loreto · Orellana · Ecuador</span></div>
+    <div class="topbar__redes"><!-- Rellenado por social-links.js --></div>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="contenedor">
+    <a class="nav__marca" href="index.html">
+      <img src="assets/img/logo.png" alt="Selva Viva Digital">
+      <span class="nav__tagline">El Pulso Amazónico</span>
+    </a>
+    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="noticias.html">Noticias</a></li>
+      <li><a href="en-vivo.html" aria-current="page">En Vivo</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="contenido">
+  <section class="hero-video">
+    <div class="contenedor">
+      <span class="badge-vivo" id="estado-senal">
+        <span class="badge-vivo__punto"></span> Verificando señal…
+      </span>
+      <h1 style="margin-top:14px;">Selva Viva Digital — Canal en Vivo</h1>
+      <p style="max-width:640px;">Transmisión continua de reportajes, coberturas y producción audiovisual desde Loreto, Orellana. Si no ves imagen, la transmisión no está activa en este momento.</p>
+    </div>
+
+    <div class="contenedor" style="margin-top:24px;">
+      <div class="video-wrapper">
+        <!--
+          🔧 Angel: esta es una señal de PRUEBA pública de Apple (bipbop),
+          solo para confirmar que el reproductor HLS funciona de punta a
+          punta. Reemplaza HLS_URL_AQUI por tu .m3u8 real (el de tu VPS
+          con MediaMTX/SRS, o el que te dé tu servicio elegido) en cuanto
+          lo tengas.
+        -->
+        <video id="video-en-vivo" controls playsinline style="width:100%; height:100%; background:#000;"></video>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="contenedor">
+    <div class="footer__marca">
+      <img src="assets/img/logo.png" alt="Selva Viva Digital">
+      <p>Periodismo digital y comunicación institucional desde la Amazonía ecuatoriana.</p>
+      <div class="footer__social"><!-- Rellenado por social-links.js --></div>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <ul class="footer__contacto-lista"><!-- Rellenado por social-links.js --></ul>
+    </div>
+  </div>
+  <div class="footer__legal">© <span data-anio></span> Selva Viva Digital · ADN Medio Digital. Todos los derechos reservados.</div>
+</footer>
+
+<script src="assets/js/social-links.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+  // 🔧 Angel: reemplaza esta URL por tu .m3u8 real cuando esté listo.
+  const HLS_URL_AQUI = 'https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8';
+
+  const video = document.getElementById('video-en-vivo');
+  const estado = document.getElementById('estado-senal');
+
+  function marcarEstado(enVivo) {
+    estado.innerHTML = enVivo
+      ? '<span class="badge-vivo__punto"></span> Al aire ahora'
+      : '<span class="badge-vivo__punto"></span> Fuera de transmisión';
+  }
+
+  if (Hls.isSupported()) {
+    const hls = new Hls();
+    hls.loadSource(HLS_URL_AQUI);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED, () => marcarEstado(true));
+    hls.on(Hls.Events.ERROR, (event, data) => {
+      if (data.fatal) marcarEstado(false);
+    });
+  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    // Safari reproduce HLS de forma nativa, sin necesidad de hls.js
+    video.src = HLS_URL_AQUI;
+    video.addEventListener('loadedmetadata', () => marcarEstado(true));
+    video.addEventListener('error', () => marcarEstado(false));
+  } else {
+    marcarEstado(false);
+  }
+</script>
+</body>
+</html>
