@@ -57,8 +57,25 @@
   <section class="hero-video">
     <div class="contenedor hero-video__grid">
       <div>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube-nocookie.com/embed/xUH47V77lR8" title="Selva Viva Digital en YouTube" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="hero-carrusel" data-hero-carrusel>
+          <div class="hero-carrusel__slide activa" data-tipo="video">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube-nocookie.com/embed/PAtOBP7N678" title="Selva Viva Digital en YouTube" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="hero-carrusel__slide" data-tipo="imagen">
+            <!-- 🔧 Angel: reemplaza esta imagen por tu banner publicitario 1 -->
+            <a href="contacto.html">
+              <img src="assets/img/publicidad/banner-1.jpg" alt="Servicios de producción audiovisual y comunicación institucional">
+            </a>
+          </div>
+          <div class="hero-carrusel__slide" data-tipo="imagen">
+            <!-- 🔧 Angel: reemplaza esta imagen por tu banner publicitario 2 -->
+            <a href="contacto.html">
+              <img src="assets/img/publicidad/banner-2.jpg" alt="Contáctanos para cobertura periodística y alianzas">
+            </a>
+          </div>
+          <div class="hero-carrusel__puntos" data-hero-carrusel-puntos></div>
         </div>
       </div>
       <div class="hero-video__texto">
@@ -147,6 +164,7 @@
 </footer>
 
 <script src="assets/js/social-links.js"></script>
+<script src="assets/js/hero-carrusel.js"></script>
 <script src="assets/js/noticias.js"></script>
 <script src="assets/js/main.js"></script>
 </body>

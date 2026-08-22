@@ -14,7 +14,7 @@
   /* ---- Acentos de categoría (identidad de canal) ---- */
   --rio: #35636a;              /* Coberturas — teal río */
   --ambar: #e8a33d;            /* Noticias Locales — cálido */
-  --rojo-directo: #ec2906d7;     /* Producción / EN VIVO */
+  --rojo-directo: #e14b3d;     /* Producción / EN VIVO */
 
   /* ---- Neutros ---- */
   --negro-estudio: #0b0f0c;    /* fondo principal del portal (oscuro, tipo canal) */
@@ -214,7 +214,7 @@ body.oscuro a:hover { color: #fff; }
 .topbar__redes a:hover { color: var(--lima-brote); }
 
 .nav {
-  background: rgba(170, 5, 87, 0.92);
+  background: rgba(11, 15, 12, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--borde-oscuro);
   position: sticky;
@@ -772,3 +772,56 @@ body.oscuro .formulario textarea {
 }
 body.oscuro .formulario label { color: var(--tinta-clara-suave); }
 body.oscuro .formulario__estado { color: var(--tinta-clara-suave); }
+
+/* =========================================================
+   Carrusel del héroe (video + banners publicitarios)
+   ========================================================= */
+.hero-carrusel {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  border: 1px solid var(--borde-oscuro);
+  background: #000;
+}
+.hero-carrusel__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+.hero-carrusel__slide.activa { opacity: 1; pointer-events: auto; }
+.hero-carrusel__slide[data-tipo="imagen"] { display: block; }
+.hero-carrusel__slide[data-tipo="imagen"] a { display: block; width: 100%; height: 100%; }
+.hero-carrusel__slide[data-tipo="imagen"] img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-carrusel__slide .video-wrapper {
+  position: absolute;
+  inset: 0;
+  padding-bottom: 0;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+.hero-carrusel__puntos {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+}
+.hero-carrusel__punto {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.hero-carrusel__punto.activo { background: #fff; transform: scale(1.25); }
