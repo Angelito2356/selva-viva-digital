@@ -14,10 +14,10 @@
   /* ---- Acentos de categoría (identidad de canal) ---- */
   --rio: #35636a;              /* Coberturas — teal río */
   --ambar: #e8a33d;            /* Noticias Locales — cálido */
-  --rojo-directo: #e14b3d;     /* Producción / EN VIVO */
+  --rojo-directo: #ec2906d7;     /* Producción / EN VIVO */
 
   /* ---- Neutros ---- */
-  --negro-estudio: #ac087b;    /* fondo principal del portal (oscuro, tipo canal) */
+  --negro-estudio: #0b0f0c;    /* fondo principal del portal (oscuro, tipo canal) */
   --panel-oscuro: #111a13;     /* tarjetas sobre fondo oscuro */
   --papel: #f4f6f1;            /* fondo claro — páginas de lectura (contacto, artículo) */
   --tarjeta-clara: #ffffff;
@@ -214,7 +214,7 @@ body.oscuro a:hover { color: #fff; }
 .topbar__redes a:hover { color: var(--lima-brote); }
 
 .nav {
-  background: rgba(11, 15, 12, 0.92);
+  background: rgba(170, 5, 87, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--borde-oscuro);
   position: sticky;
