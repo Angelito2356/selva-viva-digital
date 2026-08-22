@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Noticias · Selva Viva Digital</title>
-<meta name="description" content="Todas las noticias y reportajes de Selva Viva Digital: gestión pública, comunidad y cultura en Loreto, Orellana.">
+<meta name="description" content="Todas las noticias, reportajes, entrevistas y coberturas de Selva Viva Digital desde Loreto, Orellana.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Noticias · Selva Viva Digital">
-<meta property="og:description" content="Gestión pública, comunidad y cultura de Loreto y Orellana, contadas desde el territorio.">
+<meta property="og:description" content="Reportajes, entrevistas, coberturas y producción audiovisual de Loreto y Orellana.">
 <meta property="og:image" content="assets/img/banner.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
@@ -17,17 +17,13 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
-<body>
+<body class="oscuro">
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <div class="topbar">
   <div class="contenedor">
     <div class="topbar__lugar"><span class="emoji-solo">📍</span> <span>Loreto · Orellana · Ecuador</span></div>
-    <div class="topbar__redes">
-      <a href="https://www.youtube.com/@ADNMedioDigital" target="_blank" rel="noopener">YouTube</a>
-      <a href="#" target="_blank" rel="noopener">Facebook</a>
-      <a href="#" target="_blank" rel="noopener">Instagram</a>
-    </div>
+    <div class="topbar__redes"><!-- Rellenado por social-links.js --></div>
   </div>
 </div>
 
@@ -42,7 +38,7 @@
     </button>
     <ul class="nav__links">
       <li><a href="index.html">Inicio</a></li>
-      <li><a href="noticias.html">Noticias</a></li>
+      <li><a href="noticias.html" aria-current="page">Noticias</a></li>
       <li><a href="index.html#voces-de-la-selva">Voces de la Selva</a></li>
       <li><a href="contacto.html">Contacto</a></li>
     </ul>
@@ -50,18 +46,19 @@
 </nav>
 
 <main id="contenido">
-  <header class="pagina-cabecera contenedor">
-    <span class="etiqueta etiqueta--verde">Noticias</span>
-    <h1>Todas las noticias</h1>
-    <p>Gestión pública, comunidad y cultura de Loreto y Orellana, contadas desde el territorio.</p>
-
-    <div class="filtros" data-filtros>
-      <!-- Botones generados con noticias.js -->
+  <header class="pagina-cabecera-oscura">
+    <div class="contenedor">
+      <span class="etiqueta etiqueta--verde">Noticias</span>
+      <h1>Todas las noticias</h1>
+      <p>Reportajes, entrevistas, coberturas, noticias locales y producción audiovisual desde Loreto y Orellana.</p>
+      <div class="filtros" data-filtros>
+        <!-- Botones generados con noticias.js -->
+      </div>
     </div>
   </header>
 
-  <section class="contenedor" style="padding-bottom:70px;">
-    <div class="noticias-grid" data-grid-noticias>
+  <section class="contenedor" style="padding:36px 0 70px;">
+    <div class="grid-tarjetas" data-grid-noticias>
       <!-- Tarjetas generadas con noticias.js -->
     </div>
   </section>
@@ -72,12 +69,7 @@
     <div class="footer__marca">
       <img src="assets/img/logo.png" alt="Selva Viva Digital">
       <p>Periodismo digital y comunicación institucional desde la Amazonía ecuatoriana.</p>
-      <div class="footer__social">
-        <a href="https://www.youtube.com/@ADNMedioDigital" target="_blank" rel="noopener">YouTube</a>
-        <a href="#" target="_blank" rel="noopener">Facebook</a>
-        <a href="#" target="_blank" rel="noopener">Instagram</a>
-        <a href="#" target="_blank" rel="noopener">TikTok</a>
-      </div>
+      <div class="footer__social"><!-- Rellenado por social-links.js --></div>
     </div>
     <div>
       <h4>Navegación</h4>
@@ -89,16 +81,13 @@
     </div>
     <div>
       <h4>Contacto</h4>
-      <ul>
-        <li><a href="mailto:contacto@selvaviva.digital">contacto@selvaviva.digital</a></li>
-        <li><a href="https://wa.me/593000000000" target="_blank" rel="noopener">WhatsApp</a></li>
-        <li>Loreto, Orellana, Ecuador</li>
-      </ul>
+      <ul class="footer__contacto-lista"><!-- Rellenado por social-links.js --></ul>
     </div>
   </div>
   <div class="footer__legal">© <span data-anio></span> Selva Viva Digital · ADN Medio Digital. Todos los derechos reservados.</div>
 </footer>
 
+<script src="assets/js/social-links.js"></script>
 <script src="assets/js/noticias.js"></script>
 <script src="assets/js/main.js"></script>
 </body>

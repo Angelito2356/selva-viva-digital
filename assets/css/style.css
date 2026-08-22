@@ -9,12 +9,12 @@
   --verde-selva-600: #249b2a;
   --verde-musgo: #14301c;      /* verde bosque profundo — paneles */
   --verde-musgo-800: #0e2415;
-  --lima-brote: #ebe5e0;       /* acento vivo — hover, destacados */
+  --lima-brote: #9fd54c;       /* acento vivo — hover, destacados */
 
   /* ---- Acentos de categoría (identidad de canal) ---- */
   --rio: #35636a;              /* Coberturas — teal río */
-  --ambar: #74490a;            /* Noticias Locales — cálido */
-  --rojo-directo: #3d1c1c;     /* Producción / EN VIVO */
+  --ambar: #e8a33d;            /* Noticias Locales — cálido */
+  --rojo-directo: #e14b3d;     /* Producción / EN VIVO */
 
   /* ---- Neutros ---- */
   --negro-estudio: #0b0f0c;    /* fondo principal del portal (oscuro, tipo canal) */
@@ -24,7 +24,7 @@
   --tinta: #101613;            /* texto sobre fondo claro */
   --tinta-suave: #4a564d;
   --tinta-clara: #dfe8da;      /* texto sobre fondo oscuro */
-  --tinta-clara-suave: #ffffff;
+  --tinta-clara-suave: #a6b6a0;
   --borde-oscuro: rgba(255, 255, 255, 0.10);
   --borde-claro: #dde3d4;
 
@@ -127,8 +127,8 @@ body.oscuro a:hover { color: #fff; }
 .btn-suscribir { background: var(--rojo-directo); color: #fff; }
 .btn-suscribir:hover { background: #ff6353; color: #fff; }
 
-.btn-whatsapp { background: #79d325; color: #06110a; }
-.btn-whatsapp:hover { background: #94e538; }
+.btn-whatsapp { background: #25d366; color: #06110a; }
+.btn-whatsapp:hover { background: #38e578; }
 
 .btn-fantasma { background: transparent; border-color: rgba(255,255,255,0.35); color: #fff; }
 .btn-fantasma:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
@@ -154,8 +154,8 @@ body.oscuro a:hover { color: #fff; }
   clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
   background: var(--verde-selva);
 }
-.etiqueta--verde { background: var(--verde-selva); color: #e2ebe4; }
-.etiqueta--lima { background: var(--lima-brote); color: #99a74a; }
+.etiqueta--verde { background: var(--verde-selva); color: #08130b; }
+.etiqueta--lima { background: var(--lima-brote); color: #08130b; }
 .etiqueta--rio { background: var(--rio); color: #fff; }
 .etiqueta--ambar { background: var(--ambar); color: #2b1a02; }
 .etiqueta--rojo { background: var(--rojo-directo); color: #fff; }
@@ -165,9 +165,9 @@ body.oscuro a:hover { color: #fff; }
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  background: rgba(214, 28, 11, 0.14);
-  border: 1px solid rgba(231, 32, 14, 0.4);
-  color: #e76756;
+  background: rgba(225, 75, 61, 0.14);
+  border: 1px solid rgba(225, 75, 61, 0.4);
+  color: #ff8a7a;
   font-weight: 800;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
@@ -214,7 +214,7 @@ body.oscuro a:hover { color: #fff; }
 .topbar__redes a:hover { color: var(--lima-brote); }
 
 .nav {
-  background: rgba(182, 170, 65, 0.92);
+  background: rgba(11, 15, 12, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--borde-oscuro);
   position: sticky;
@@ -228,12 +228,12 @@ body.oscuro a:hover { color: #fff; }
   padding: 12px 20px;
   gap: 20px;
 }
-.nav__marca { display: flex; align-items: center; gap: 30px; }
-.nav__marca img { height: 48px; width: auto; margin-top: -20px; }
+.nav__marca { display: flex; align-items: center; gap: 10px; }
+.nav__marca img { height: 38px; width: auto; }
 .nav__marca .nav__tagline {
   font-family: var(--fuente-lectura);
   font-style: italic;
-  font-size: 1.75rem;
+  font-size: 0.85rem;
   color: var(--tinta-clara-suave);
   border-left: 2px solid var(--borde-oscuro);
   padding-left: 12px;
@@ -243,7 +243,7 @@ body.oscuro a:hover { color: #fff; }
 .nav__toggle {
   display: none;
   background: none;
-  border: 2px solid rgba(255, 255, 255, 0.274);
+  border: 2px solid rgba(255,255,255,0.3);
   border-radius: 8px;
   padding: 8px 10px;
   cursor: pointer;
@@ -753,3 +753,22 @@ body.oscuro .seccion-canal__titulo h2 { color: #fff; }
   justify-content: center;
   text-align: center;
 }
+
+/* =========================================================
+   Contacto en tema oscuro (unifica con el resto del sitio,
+   sobrescribe el "tema claro" original del formulario)
+   ========================================================= */
+body.oscuro .formulario {
+  background: var(--panel-oscuro);
+  border-color: var(--borde-oscuro);
+  box-shadow: none;
+}
+body.oscuro .formulario input,
+body.oscuro .formulario select,
+body.oscuro .formulario textarea {
+  background: var(--negro-estudio);
+  color: #fff;
+  border-color: var(--borde-oscuro);
+}
+body.oscuro .formulario label { color: var(--tinta-clara-suave); }
+body.oscuro .formulario__estado { color: var(--tinta-clara-suave); }

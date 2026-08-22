@@ -16,17 +16,13 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
-<body>
+<body class="oscuro">
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <div class="topbar">
   <div class="contenedor">
     <div class="topbar__lugar"><span class="emoji-solo">📍</span> <span>Loreto · Orellana · Ecuador</span></div>
-    <div class="topbar__redes">
-      <a href="https://www.youtube.com/@ADNMedioDigital" target="_blank" rel="noopener">YouTube</a>
-      <a href="#" target="_blank" rel="noopener">Facebook</a>
-      <a href="#" target="_blank" rel="noopener">Instagram</a>
-    </div>
+    <div class="topbar__redes"><!-- Rellenado por social-links.js --></div>
   </div>
 </div>
 
@@ -49,12 +45,19 @@
 </nav>
 
 <main id="contenido">
-  <article class="articulo contenedor" data-articulo>
-    <!-- Contenido generado con noticias.js según ?id= en la URL -->
+  <article class="articulo-hero">
+    <div class="contenedor" data-articulo>
+      <!-- Cabecera + media generados con noticias.js según ?id= en la URL -->
+    </div>
   </article>
 
-  <section class="relacionadas contenedor" data-relacionadas>
-    <!-- Noticias relacionadas generadas con noticias.js -->
+  <section class="articulo-cuerpo-seccion">
+    <div class="contenedor" data-articulo-cuerpo>
+      <!-- Cuerpo del artículo + botones de compartir, generados con noticias.js -->
+    </div>
+    <div class="contenedor" data-relacionadas>
+      <!-- Noticias relacionadas generadas con noticias.js -->
+    </div>
   </section>
 </main>
 
@@ -63,12 +66,7 @@
     <div class="footer__marca">
       <img src="assets/img/logo.png" alt="Selva Viva Digital">
       <p>Periodismo digital y comunicación institucional desde la Amazonía ecuatoriana.</p>
-      <div class="footer__social">
-        <a href="https://www.youtube.com/@ADNMedioDigital" target="_blank" rel="noopener">YouTube</a>
-        <a href="#" target="_blank" rel="noopener">Facebook</a>
-        <a href="#" target="_blank" rel="noopener">Instagram</a>
-        <a href="#" target="_blank" rel="noopener">TikTok</a>
-      </div>
+      <div class="footer__social"><!-- Rellenado por social-links.js --></div>
     </div>
     <div>
       <h4>Navegación</h4>
@@ -80,16 +78,13 @@
     </div>
     <div>
       <h4>Contacto</h4>
-      <ul>
-        <li><a href="mailto:contacto@selvaviva.digital">contacto@selvaviva.digital</a></li>
-        <li><a href="https://wa.me/593000000000" target="_blank" rel="noopener">WhatsApp</a></li>
-        <li>Loreto, Orellana, Ecuador</li>
-      </ul>
+      <ul class="footer__contacto-lista"><!-- Rellenado por social-links.js --></ul>
     </div>
   </div>
   <div class="footer__legal">© <span data-anio></span> Selva Viva Digital · ADN Medio Digital. Todos los derechos reservados.</div>
 </footer>
 
+<script src="assets/js/social-links.js"></script>
 <script src="assets/js/noticias.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
