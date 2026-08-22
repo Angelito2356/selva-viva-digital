@@ -191,7 +191,7 @@ body.oscuro a:hover { color: #fff; }
    Barra superior + navegación
    ========================================================= */
 .topbar {
-  background: #06090a;
+  background: #bd0294;
   border-bottom: 1px solid var(--borde-oscuro);
   color: var(--tinta-clara-suave);
   font-size: 0.78rem;
