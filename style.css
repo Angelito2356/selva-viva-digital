@@ -191,7 +191,7 @@ body.oscuro a:hover { color: #fff; }
    Barra superior + navegación
    ========================================================= */
 .topbar {
-  background: #bd0294;
+  background: #06090a;
   border-bottom: 1px solid var(--borde-oscuro);
   color: var(--tinta-clara-suave);
   font-size: 0.78rem;
@@ -214,7 +214,7 @@ body.oscuro a:hover { color: #fff; }
 .topbar__redes a:hover { color: var(--lima-brote); }
 
 .nav {
-  background: rgba(11, 15, 12, 0.92);
+  background: rgba(201, 7, 180, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--borde-oscuro);
   position: sticky;
