@@ -825,3 +825,30 @@ body.oscuro .formulario__estado { color: var(--tinta-clara-suave); }
   transition: background 0.2s ease, transform 0.2s ease;
 }
 .hero-carrusel__punto.activo { background: #fff; transform: scale(1.25); }
+
+/* =========================================================
+   Página 404
+   ========================================================= */
+.pagina-404 {
+  min-height: 58vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(900px 400px at 50% -10%, rgba(46,188,53,0.12), transparent),
+    var(--negro-estudio);
+  padding: 60px 0;
+}
+.pagina-404 .contenedor {
+  max-width: 560px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.pagina-404 .etiqueta { margin-bottom: 4px; }
+.pagina-404 h1 { color: #fff; font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.pagina-404 p { color: var(--tinta-clara-suave); }
+.pagina-404 .btn { margin-top: 8px; }

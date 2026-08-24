@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Página no encontrada · Selva Viva Digital</title>
+<meta name="description" content="La página que buscas no existe o fue movida.">
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,25 +12,69 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
-<body>
+<body class="oscuro">
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<div class="topbar">
+  <div class="contenedor">
+    <div class="topbar__lugar"><span class="emoji-solo">📍</span> <span>Loreto · Orellana · Ecuador</span></div>
+    <div class="topbar__redes"><!-- Rellenado por social-links.js --></div>
+  </div>
+</div>
+
 <nav class="nav">
   <div class="contenedor">
     <a class="nav__marca" href="index.html">
       <img src="assets/img/logo.png" alt="Selva Viva Digital">
       <span class="nav__tagline">El Pulso Amazónico</span>
     </a>
-    <ul class="nav__links" style="display:flex;">
+    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links">
       <li><a href="index.html">Inicio</a></li>
       <li><a href="noticias.html">Noticias</a></li>
+      <li><a href="index.html#voces-de-la-selva">Voces de la Selva</a></li>
       <li><a href="contacto.html">Contacto</a></li>
     </ul>
   </div>
 </nav>
-<div class="no-encontrado contenedor">
-  <span class="etiqueta etiqueta--musgo">Error 404</span>
-  <h1>Esta página se perdió en la selva</h1>
-  <p>El enlace que buscas no existe o fue movido.</p>
-  <a class="btn btn-primario" href="index.html">Volver al inicio</a>
-</div>
+
+<main id="contenido">
+  <section class="pagina-404">
+    <div class="contenedor">
+      <span class="etiqueta etiqueta--rojo">Error 404</span>
+      <h1>Esta página se perdió en la selva</h1>
+      <p>El enlace que buscas no existe o fue movido.</p>
+      <a class="btn btn-primario" href="index.html">Volver al inicio</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="contenedor">
+    <div class="footer__marca">
+      <img src="assets/img/logo.png" alt="Selva Viva Digital">
+      <p>Periodismo digital y comunicación institucional desde la Amazonía ecuatoriana.</p>
+      <div class="footer__social"><!-- Rellenado por social-links.js --></div>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <ul class="footer__contacto-lista"><!-- Rellenado por social-links.js --></ul>
+    </div>
+  </div>
+  <div class="footer__legal">© <span data-anio></span> Selva Viva Digital · ADN Medio Digital. Todos los derechos reservados.</div>
+</footer>
+
+<script src="assets/js/social-links.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
