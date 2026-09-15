@@ -646,6 +646,11 @@ body.oscuro .seccion-canal__titulo h2 { color: #fff; }
 /* =========================================================
    Reduce motion
    ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .badge-vivo__punto { animation: none; }
+  .tarjeta { transition: none; }
+}
   @media (min-width: 900px) {
     .nav__marca .nav__tagline { display: inline-block; }
   }
