@@ -31,16 +31,6 @@ const FORMATO_SLUG = {
   'Producción Audiovisual': 'produccion-audiovisual'
 };
 
-/**
- * Devuelve la imagen a usar como miniatura: la propia si existe,
- * o si no, la miniatura automática de YouTube derivada del video.
- */
-function imagenNoticia(n) {
-  if (n.imagen) return n.imagen;
-  if (n.video) return `https://img.youtube.com/vi/${n.video}/hqdefault.jpg`;
-  return '';
-}
-
 function formatearFecha(iso) {
   const [anio, mes, dia] = iso.split('-').map(Number);
   return `${dia} de ${MESES[mes - 1]} de ${anio}`;
@@ -67,8 +57,7 @@ function tarjetaHTML(n, { media = true } = {}) {
   const mediaHTML = media
     ? `
       <a class="tarjeta__media" href="reportaje.html?id=${n.id}">
-        <img src="${imagenNoticia(n)}" alt="${n.titulo}" loading="lazy">
-        ${n.video ? '<div class="tarjeta__play"><span>▶</span></div>' : ''}
+        <img src="${n.imagen}" alt="${n.titulo}" loading="lazy">
       </a>`
     : '';
 
@@ -113,8 +102,7 @@ function iniciarInicio(noticias) {
       </div>
       <article class="destacada">
         <a class="destacada__media" href="reportaje.html?id=${destacada.id}">
-          <img src="${imagenNoticia(destacada)}" alt="${destacada.titulo}">
-          ${destacada.video ? '<div class="tarjeta__play"><span>▶</span></div>' : ''}
+          <img src="${destacada.imagen}" alt="${destacada.titulo}">
         </a>
         <div class="destacada__cuerpo">
           <span class="etiqueta etiqueta--${destacada.colorFormato}">${destacada.formato}</span>
