@@ -27,6 +27,19 @@ document.addEventListener('DOMContentLoaded', () => {
     el.textContent = new Date().getFullYear();
   });
 
+  // Fecha de hoy en la barra superior (siempre con la hora de Ecuador)
+  document.querySelectorAll('[data-fecha-hoy]').forEach((el) => {
+    const zona = 'America/Guayaquil';
+    const partes = Object.fromEntries(
+      new Intl.DateTimeFormat('es-EC', { timeZone: zona, weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
+        .formatToParts(new Date())
+        .map((p) => [p.type, p.value])
+    );
+    const dia = partes.weekday.charAt(0).toUpperCase() + partes.weekday.slice(1);
+    el.textContent = `${dia} ${partes.day} de ${partes.month} de ${partes.year}`;
+    el.setAttribute('datetime', new Intl.DateTimeFormat('en-CA', { timeZone: zona }).format(new Date()));
+  });
+
   // Marca el enlace activo según la página actual
   const rutaActual = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav__links a').forEach((enlace) => {

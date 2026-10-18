@@ -993,3 +993,8 @@ a:hover { color: var(--hoja); text-decoration: underline; }
 /* Reportaje: aire entre "Compartir" y "Más noticias" */
 [data-relacionadas] { padding-top: 56px; padding-bottom: 24px; }
 [data-relacionadas] > h2 { margin-bottom: 24px; }
+
+/* Barra superior: lugar + fecha de hoy */
+.topbar__izq { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; min-width: 0; }
+.topbar__fecha { color: var(--sobre-selva); font-weight: 600; }
+.topbar__lugar + .topbar__fecha { padding-left: 14px; border-left: 1px solid rgba(255, 255, 255, 0.22); }

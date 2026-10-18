@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   let episodios;
   try {
-    const resp = await fetch('assets/data/voces.json');
+    const resp = await fetch('assets/data/voces.json', { cache: 'no-cache' });
     episodios = await resp.json();
   } catch (e) {
     return; // si falla, queda el video por defecto del HTML

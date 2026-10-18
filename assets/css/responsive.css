@@ -79,7 +79,8 @@
 
 @media (max-width: 560px) {
   .topbar__lugar { display: none; }
-  .topbar .contenedor { justify-content: center; }
+  .topbar__lugar + .topbar__fecha { padding-left: 0; border-left: 0; }
+  .topbar .contenedor { flex-direction: column; justify-content: center; gap: 4px; }
   .topbar__redes { gap: 14px; }
   .ticker__marca { font-size: 0.75rem; padding: 10px 22px 10px 12px; }
   .ticker__texto { font-size: 0.82rem; }

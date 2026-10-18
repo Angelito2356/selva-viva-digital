@@ -38,7 +38,7 @@ function formatearFecha(iso) {
 
 async function obtenerNoticias() {
   try {
-    const res = await fetch(RUTA_DATOS);
+    const res = await fetch(RUTA_DATOS, { cache: 'no-cache' });
     if (!res.ok) throw new Error('No se pudo cargar noticias.json');
     const datos = await res.json();
     return datos.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));

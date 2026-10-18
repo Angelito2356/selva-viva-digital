@@ -12,7 +12,7 @@ const SOCIAL_LINKS = {
   youtube:   { url: "https://www.youtube.com/@ADNMedioDigital", label: "YouTube",  short: "YT" },
   facebook:  { url: "https://facebook.com/selvavivadigital",    label: "Facebook", short: "FB" },
   instagram: { url: "https://instagram.com/selvaviva.ec",       label: "Instagram",short: "IG" },
-  tiktok:    { url: "https://tiktok.com/@adnmediodigital",      label: "TikTok",   short: "TT" },
+  tiktok:    { url: "https://tiktok.com/@selvavivadigital",      label: "TikTok",   short: "TT" },
   x:         { url: "https://x.com/adnmediodigital",            label: "X",        short: "X" },
   whatsapp:  { url: "https://wa.me/593999316910",               label: "+593 99 931 6910", short: "WA" },
   email:     { url: "mailto:info.adnmediodigital@gmail.com",    label: "info.adnmediodigital@gmail.com", short: "Correo" }
