@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (!cont) return;
   const iframe = cont.querySelector('iframe');
   const lista = cont.querySelector('[data-voces-lista]');
+  const fichaTitulo = cont.querySelector('[data-voces-titulo]');
+  const fichaFecha = cont.querySelector('[data-voces-fecha]');
+  const fichaEnlace = cont.querySelector('[data-voces-enlace]');
 
   let episodios;
   try {
@@ -30,6 +33,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const ep = episodios[i];
     iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(ep.id)}?rel=0${reproducir ? '&autoplay=1' : ''}`;
     iframe.title = ep.titulo;
+    if (fichaTitulo) fichaTitulo.textContent = ep.titulo;
+    if (fichaFecha) fichaFecha.textContent = (i === 0 ? 'Más reciente · ' : '') + fechaLegible(ep.fecha);
+    if (fichaEnlace) fichaEnlace.href = `https://youtu.be/${encodeURIComponent(ep.id)}`;
     botones.forEach((b, k) => {
       b.classList.toggle('activo', k === i);
       b.setAttribute('aria-current', k === i ? 'true' : 'false');
@@ -52,9 +58,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const fecha = document.createElement('span');
     fecha.className = 'voces-item__fecha';
-    fecha.textContent = (i === 0 ? 'Última · ' : '') + fechaLegible(ep.fecha);
+    fecha.textContent = fechaLegible(ep.fecha);
 
-    b.append(img, titulo, fecha);
+    const texto = document.createElement('span');
+    texto.className = 'voces-item__texto';
+    texto.append(titulo, fecha);
+    b.append(img, texto);
     b.addEventListener('click', () => seleccionar(i, true));
     lista.appendChild(b);
     botones.push(b);

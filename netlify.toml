@@ -2,12 +2,9 @@
   publish = "."
   command = ""
 
+# Todo se revalida en cada visita (ETag): así los cambios que subes desde
+# GitHub Desktop llegan a los visitantes sin esperar a que caduque la caché.
 [[headers]]
-  for = "/assets/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/*.html"
+  for = "/*"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"

@@ -6,6 +6,15 @@
   .nav__marca .nav__tagline { display: inline-block; }
 }
 
+/* ---- Tablet grande: el estudio de Voces pasa a una columna ---- */
+@media (max-width: 1000px) {
+  .programa-banda__cabecera { grid-template-columns: 1fr; gap: 16px; }
+  .estudio { grid-template-columns: 1fr; }
+  .estudio__lista { padding-bottom: 14px; }
+  .voces-lista { position: static; max-height: 380px; margin: 0 4px; }
+}
+
+/* ---- Tablet ---- */
 @media (max-width: 900px) {
   .nav__toggle { display: inline-block; }
 
@@ -14,22 +23,28 @@
     top: 100%;
     left: 0;
     right: 0;
-    background: #0b0f0c;
-    border-bottom: 1px solid var(--borde-oscuro);
+    background: #fff;
+    border-bottom: 1px solid var(--linea);
+    box-shadow: 0 18px 30px -18px rgba(13, 59, 51, 0.4);
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    gap: 2px;
     padding: 10px 20px 20px;
     display: none;
   }
   .nav__links.abierto { display: flex; }
-  .nav__links a { width: 100%; padding: 10px 0; }
+  .nav__links a { display: block; width: 100%; padding: 12px 0; border-bottom: 0; }
+  .nav__links a:hover,
+  .nav__links a[aria-current="page"] { color: var(--hoja); }
 
-  .topbar__lugar span.texto-lugar { display: none; }
-
-  .hero-video__grid { grid-template-columns: 1fr; }
+  .hero-video__grid { grid-template-columns: 1fr; gap: 30px; }
+  .hero-video { padding: 36px 0 34px; }
 
   .grid-tarjetas { grid-template-columns: repeat(2, 1fr); }
+
+  .destacada { grid-template-columns: 1fr; }
+  .destacada__media img { min-height: 200px; }
+  .destacada__cuerpo { padding: 26px 24px; }
 
   .franja-redes .contenedor { flex-direction: column; align-items: flex-start; }
 
@@ -38,28 +53,34 @@
   .contacto-grid { grid-template-columns: 1fr; }
 }
 
+/* ---- Celular ---- */
 @media (max-width: 620px) {
   .grid-tarjetas { grid-template-columns: 1fr; }
   .footer .contenedor { grid-template-columns: 1fr; }
-  .sobre-tarjeta { flex-direction: column; text-align: center; }
+  .sobre-tarjeta { flex-direction: column; text-align: center; padding: 26px 22px; }
   .seccion-canal { padding: 40px 0; }
-  .hero-video { padding: 30px 0 40px; }
+  .hero-video { padding: 26px 0 30px; }
+  .hero-video__texto h1 { font-size: 2.2rem; }
+  .hero-video__texto p { font-size: 1.1rem; }
   .articulo-hero__meta { flex-direction: column; gap: 4px; }
   .compartir { flex-wrap: wrap; }
   .redes-botones { width: 100%; }
   .red-boton { flex: 1 1 auto; justify-content: center; }
-}
 
+  .nav__marca img { height: 40px; }
 
-/* =========================================================
-   Ajustes responsive agregados (destacada, programa-banda, ticker)
-   ========================================================= */
-@media (max-width: 900px) {
-  .destacada { grid-template-columns: 1fr; }
-  .destacada__media img { min-height: 200px; }
-  .programa-banda .contenedor { grid-template-columns: 1fr; }
+  .programa-banda { padding: 52px 0 58px; }
+  .programa-banda h2 { font-size: 2.5rem; }
+  .estudio__pantalla { padding: 8px 8px 6px; border-radius: 18px; }
+  .estudio__ficha { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .estudio__ficha h3 { font-size: 1.15rem; }
+  .voces-item { grid-template-columns: 88px 1fr; }
 }
 
 @media (max-width: 560px) {
-  .ticker__marca { display: none; }
+  .topbar__lugar { display: none; }
+  .topbar .contenedor { justify-content: center; }
+  .topbar__redes { gap: 14px; }
+  .ticker__marca { font-size: 0.75rem; padding: 10px 22px 10px 12px; }
+  .ticker__texto { font-size: 0.82rem; }
 }

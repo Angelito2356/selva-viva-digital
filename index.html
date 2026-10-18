@@ -13,7 +13,7 @@
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
@@ -64,23 +64,21 @@
               <iframe src="https://www.youtube-nocookie.com/embed/PAtOBP7N678" title="Selva Viva Digital en YouTube" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
           </div>
-          <div class="hero-carrusel__slide" data-tipo="imagen">
-            <!-- 🔧 Angel: reemplaza esta imagen por tu banner publicitario 1 -->
-            <a href="contacto.html">
-              <img src="assets/img/publicidad/banner-1.jpg" alt="Servicios de producción audiovisual y comunicación institucional">
+          <div class="hero-carrusel__slide" data-tipo="imagen" style="--img:url('/assets/img/cne/autoridades-a-elegir.jpg')">
+            <a href="https://www.cne.gob.ec" target="_blank" rel="noopener">
+              <img src="assets/img/cne/autoridades-a-elegir.jpg" alt="CNE: autoridades a elegir en las elecciones seccionales y CPCCS 2027">
             </a>
           </div>
-          <div class="hero-carrusel__slide" data-tipo="imagen">
-            <!-- 🔧 Angel: reemplaza esta imagen por tu banner publicitario 2 -->
-            <a href="contacto.html">
-              <img src="assets/img/publicidad/banner-2.jpg" alt="Contáctanos para cobertura periodística y alianzas">
+          <div class="hero-carrusel__slide" data-tipo="imagen" style="--img:url('/assets/img/cne/ecuatorianos-en-el-exterior.jpg')">
+            <a href="https://www.cne.gob.ec" target="_blank" rel="noopener">
+              <img src="assets/img/cne/ecuatorianos-en-el-exterior.jpg" alt="CNE: el domingo 29 de noviembre los ecuatorianos en el exterior elegirán siete consejeros del CPCCS">
             </a>
           </div>
           <div class="hero-carrusel__puntos" data-hero-carrusel-puntos></div>
         </div>
       </div>
       <div class="hero-video__texto">
-        <span class="badge-vivo"><span class="badge-vivo__punto"></span> Al aire en Selva Viva Digital</span>
+        <span class="badge-vivo badge-vivo--quieto"><span class="badge-vivo__punto"></span> Video destacado</span>
         <h1>El Pulso Amazónico de Loreto, Orellana</h1>
         <p>Reportajes, entrevistas, coberturas y producción audiovisual desde el corazón de la Amazonía ecuatoriana. Periodismo hecho en el territorio, para el territorio.</p>
         <div class="hero-video__acciones">
@@ -90,11 +88,45 @@
       </div>
     </div>
     <div class="contenedor categorias-pill">
-      <a class="pildora" href="#seccion-reportaje"><span class="pildora__punto" style="background:var(--verde-selva);"></span> Reportajes</a>
-      <a class="pildora" href="#seccion-entrevista"><span class="pildora__punto" style="background:var(--lima-brote);"></span> Entrevistas</a>
-      <a class="pildora" href="#seccion-cobertura"><span class="pildora__punto" style="background:var(--rio);"></span> Coberturas</a>
-      <a class="pildora" href="#seccion-noticia-local"><span class="pildora__punto" style="background:var(--ambar);"></span> Noticias Locales</a>
-      <a class="pildora" href="#seccion-produccion-audiovisual"><span class="pildora__punto" style="background:var(--rojo-directo);"></span> Producción Audiovisual</a>
+      <a class="pildora" href="noticias.html?formato=Reportaje"><span class="pildora__punto" style="background:var(--verde-selva);"></span> Reportajes</a>
+      <a class="pildora" href="noticias.html?formato=Entrevista"><span class="pildora__punto" style="background:var(--lima-brote);"></span> Entrevistas</a>
+      <a class="pildora" href="noticias.html?formato=Cobertura"><span class="pildora__punto" style="background:var(--rio);"></span> Coberturas</a>
+      <a class="pildora" href="noticias.html?formato=Noticia%20Local"><span class="pildora__punto" style="background:var(--ambar);"></span> Noticias Locales</a>
+      <a class="pildora" href="noticias.html?formato=Producci%C3%B3n%20Audiovisual"><span class="pildora__punto" style="background:var(--rojo-directo);"></span> Producción Audiovisual</a>
+    </div>
+  </section>
+
+  <section class="programa-banda" id="voces-de-la-selva">
+    <div class="contenedor">
+      <header class="programa-banda__cabecera">
+        <div>
+          <h2>Voces de la Selva</h2>
+          <p class="programa-banda__cita">"Cada historia de la selva merece ser escuchada."</p>
+        </div>
+        <div>
+          <p>El programa que recorre las historias humanas detrás de la vida amazónica: cultura, arte, comunidad y territorio, contadas por quienes las viven en Loreto y Orellana.</p>
+          <a class="btn btn-claro" href="https://www.youtube.com/playlist?list=PLUYz0TOiSIn4" target="_blank" rel="noopener">Ver todas las entrevistas en YouTube</a>
+        </div>
+      </header>
+
+      <div class="estudio" data-voces>
+        <div class="estudio__pantalla">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube-nocookie.com/embed/FJWRjkmphRI?rel=0" title="Programa Voces de la Selva" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="estudio__ficha">
+            <div>
+              <h3 data-voces-titulo>Programa Voces de la Selva</h3>
+              <p data-voces-fecha></p>
+            </div>
+            <a class="btn btn-chico btn-claro" data-voces-enlace href="https://youtu.be/FJWRjkmphRI" target="_blank" rel="noopener">Ver en YouTube</a>
+          </div>
+        </div>
+        <aside class="estudio__lista" aria-label="Más entrevistas de Voces de la Selva">
+          <h3>Más entrevistas</h3>
+          <div class="voces-lista" data-voces-lista></div>
+        </aside>
+      </div>
     </div>
   </section>
 
@@ -103,26 +135,9 @@
   </section>
 
   <div data-secciones-formato>
-    <!-- Secciones por formato (Reportajes, Entrevistas, Coberturas...) generadas con noticias.js -->
+    <!-- "Más noticias" se genera con noticias.js -->
   </div>
 
-  <section class="programa-banda" id="voces-de-la-selva">
-    <div class="contenedor">
-      <div>
-        <span class="etiqueta etiqueta--musgo">Programa insignia</span>
-        <h2>Voces de la Selva</h2>
-        <p>El programa que recorre las historias humanas detrás de la vida amazónica: cultura, arte, comunidad y territorio, contadas por quienes las viven en Loreto y Orellana.</p>
-        <a class="btn btn-claro" href="https://www.youtube.com/@ADNMedioDigital" target="_blank" rel="noopener">Ver episodios en YouTube</a>
-      </div>
-      <div class="programa-banda__player" data-voces>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube-nocookie.com/embed/FJWRjkmphRI?rel=0" title="Programa Voces de la Selva" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="voces-lista" data-voces-lista></div>
-        <p class="programa-banda__cita">"Cada historia de la selva merece ser escuchada."</p>
-      </div>
-    </div>
-  </section>
 
   <section class="franja-redes">
     <div class="contenedor">
@@ -157,6 +172,8 @@
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="index.html#voces-de-la-selva">Voces de la Selva</a></li>
+        <li><a href="en-vivo.html">En Vivo</a></li>
         <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </div>

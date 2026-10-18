@@ -116,32 +116,21 @@ function iniciarInicio(noticias) {
   }
 
   if (seccionesEl) {
-    const presentes = FORMATOS_ORDEN.filter((f) => noticias.some((n) => n.formato === f && n.id !== destacada.id));
+    // Una sola cuadrícula con el resto de las notas (hasta 6), cada una con su
+    // etiqueta de formato. Con pocas notas se ve completa; al crecer, se llena sola.
+    const resto = noticias.filter((n) => n.id !== destacada.id).slice(0, 6);
 
-    if (!presentes.length) {
-      seccionesEl.innerHTML = '';
-      return;
-    }
-
-    seccionesEl.innerHTML = presentes
-      .map((formato, i) => {
-        const items = noticias.filter((n) => n.formato === formato && n.id !== destacada.id).slice(0, 3);
-        if (!items.length) return '';
-        const slug = FORMATO_SLUG[formato];
-        const fondoAlterno = i % 2 === 1 ? ' style="background:#0e1310;"' : '';
-        return `
-          <section class="seccion-canal" id="seccion-${slug}"${fondoAlterno}>
-            <div class="contenedor">
-              <div class="seccion-canal__cabecera">
-                <div class="seccion-canal__titulo"><h2>${FORMATO_TITULO[formato]}</h2></div>
-                <a class="ver-todas" href="noticias.html?formato=${encodeURIComponent(formato)}">Ver todas →</a>
-              </div>
-              <div class="grid-tarjetas">${items.map((n) => tarjetaHTML(n, { media: false })).join('')}</div>
-            </div>
-          </section>
-        `;
-      })
-      .join('');
+    seccionesEl.innerHTML = resto.length
+      ? `
+        <section class="seccion-canal contenedor" id="mas-noticias">
+          <div class="seccion-canal__cabecera">
+            <div class="seccion-canal__titulo"><h2>Más noticias</h2></div>
+            <a class="ver-todas" href="noticias.html">Ver todas →</a>
+          </div>
+          <div class="grid-tarjetas">${resto.map((n) => tarjetaHTML(n, { media: true })).join('')}</div>
+        </section>
+      `
+      : '';
   }
 }
 
