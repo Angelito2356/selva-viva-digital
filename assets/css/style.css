@@ -845,3 +845,40 @@ body.oscuro .seccion-canal__titulo h2 { color: #fff; }
   font-style: italic;
   color: var(--lima-brote);
 }
+
+/* Voces de la Selva: carrusel de entrevistas */
+.voces-lista {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 2px 2px 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+.voces-item {
+  flex: 0 0 150px;
+  scroll-snap-align: start;
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  background: var(--panel-oscuro);
+  border: 1px solid var(--borde-oscuro);
+  border-radius: 10px;
+}
+.voces-item img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.voces-item__titulo {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding: 8px 10px 2px;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  color: var(--tinta-clara);
+}
+.voces-item__fecha { display: block; padding: 0 10px 9px; font-size: 0.72rem; color: var(--tinta-clara-suave); }
+.voces-item:hover { border-color: var(--lima-brote); }
+.voces-item.activo { border-color: var(--verde-selva); box-shadow: 0 0 0 1px var(--verde-selva); }
