@@ -732,7 +732,7 @@ body.oscuro .seccion-canal__titulo h2 { color: #fff; }
 }
 .programa-banda .contenedor {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 0.9fr 1.1fr;
   gap: 40px;
   align-items: center;
 }
@@ -833,4 +833,15 @@ body.oscuro .seccion-canal__titulo h2 { color: #fff; }
   width: 24px;
   border-radius: 5px;
   background: var(--verde-selva);
+}
+
+
+/* Voces de la Selva: reproductor de la lista de entrevistas */
+.programa-banda__player { min-width: 0; }
+.programa-banda__cita {
+  margin: 14px 0 0;
+  text-align: center;
+  font-family: var(--fuente-lectura);
+  font-style: italic;
+  color: var(--lima-brote);
 }
