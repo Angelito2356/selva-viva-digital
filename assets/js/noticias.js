@@ -96,20 +96,37 @@ function iniciarInicio(noticias) {
   const destacada = noticias.find((n) => n.destacada) || noticias[0];
 
   if (destacadaEl) {
+    const enlaceNota = `reportaje.html?id=${destacada.id}`;
+    // Si la nota trae un video de YouTube, la portada muestra su miniatura con botón de reproducir.
+    const media = destacada.video
+      ? `<a class="destacada__media destacada__media--video" href="${enlaceNota}" aria-label="Ver el reportaje en video: ${destacada.titulo}">
+          <img src="https://i.ytimg.com/vi/${destacada.video}/maxresdefault.jpg" alt="${destacada.titulo}"
+               onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${destacada.video}/hqdefault.jpg'">
+          <span class="play-badge" aria-hidden="true"></span>
+          <span class="destacada__chip">Reportaje en video</span>
+        </a>`
+      : `<a class="destacada__media" href="${enlaceNota}">
+          <img src="${destacada.imagen}" alt="${destacada.titulo}">
+        </a>`;
+    const botonVideo = destacada.video
+      ? `<a class="btn btn-fantasma" href="https://youtu.be/${destacada.video}" target="_blank" rel="noopener">▶ Ver en YouTube</a>`
+      : '';
+
     destacadaEl.innerHTML = `
       <div class="seccion-canal__cabecera">
         <div class="seccion-canal__titulo"><h2>Lo último</h2></div>
       </div>
       <article class="destacada">
-        <a class="destacada__media" href="reportaje.html?id=${destacada.id}">
-          <img src="${destacada.imagen}" alt="${destacada.titulo}">
-        </a>
+        ${media}
         <div class="destacada__cuerpo">
           <span class="etiqueta etiqueta--${destacada.colorFormato}">${destacada.formato}</span>
-          <h2><a href="reportaje.html?id=${destacada.id}">${destacada.titulo}</a></h2>
+          <h2><a href="${enlaceNota}">${destacada.titulo}</a></h2>
           <p>${destacada.resumen}</p>
           <p class="destacada__meta">${formatearFecha(destacada.fecha)} · ${destacada.autor}</p>
-          <a class="btn btn-primario" href="reportaje.html?id=${destacada.id}">Leer reportaje completo</a>
+          <div class="destacada__acciones">
+            <a class="btn btn-primario" href="${enlaceNota}">Leer reportaje completo</a>
+            ${botonVideo}
+          </div>
         </div>
       </article>
     `;
