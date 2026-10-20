@@ -638,6 +638,8 @@ a:hover { color: var(--hoja); text-decoration: underline; }
 .articulo-hero__cabecera h1 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 14px; }
 .articulo-hero__meta { color: var(--tinta-suave); font-size: 0.92rem; display: flex; gap: 16px; flex-wrap: wrap; }
 .articulo-hero__media { max-width: 960px; margin: 0 auto; }
+.articulo-hero__enlace { display: block; position: relative; overflow: hidden; border-radius: var(--radio); }
+.articulo__video-cta { text-align: center; margin: 8px 0 28px; }
 .articulo-hero__media .video-wrapper { box-shadow: var(--sombra); }
 .articulo-hero__media img {
   border-radius: var(--radio);
