@@ -57,7 +57,9 @@ function tarjetaHTML(n, { media = true } = {}) {
   const mediaHTML = media
     ? `
       <a class="tarjeta__media" href="reportaje.html?id=${n.id}">
-        <img src="${n.imagen}" alt="${n.titulo}" loading="lazy">
+        ${n.video
+          ? `<img src="https://i.ytimg.com/vi/${n.video}/hqdefault.jpg" alt="${n.titulo}" loading="lazy" onerror="this.onerror=null;this.src='${n.imagen}'">`
+          : `<img src="${n.imagen}" alt="${n.titulo}" loading="lazy">`}
       </a>`
     : '';
 
