@@ -57,7 +57,9 @@ function tarjetaHTML(n, { media = true } = {}) {
   const mediaHTML = media
     ? `
       <a class="tarjeta__media" href="reportaje.html?id=${n.id}">
-        <img src="${n.imagen}" alt="${n.titulo}" loading="lazy">
+        ${n.video
+          ? `<img src="https://i.ytimg.com/vi/${n.video}/hqdefault.jpg" alt="${n.titulo}" loading="lazy" onerror="this.onerror=null;this.src='${n.imagen}'">`
+          : `<img src="${n.imagen}" alt="${n.titulo}" loading="lazy">`}
       </a>`
     : '';
 
@@ -229,7 +231,9 @@ function iniciarReportaje(noticias) {
 
   const mediaHTML = noticia.video
     ? `<div class="video-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/${noticia.video}" title="${noticia.titulo}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>`
-    : `<img src="${noticia.imagen}" alt="${noticia.titulo}">`;
+    : noticia.enlaceVideo
+      ? `<a class="articulo-hero__enlace" href="${noticia.enlaceVideo}" target="_blank" rel="noopener" aria-label="Ver el video en Facebook"><img src="${noticia.imagen}" alt="${noticia.titulo}"><span class="play-badge" aria-hidden="true"></span><span class="destacada__chip">Ver video en Facebook</span></a>`
+      : `<img src="${noticia.imagen}" alt="${noticia.titulo}">`;
 
   contenedor.innerHTML = `
     <div class="articulo-hero__cabecera">
@@ -249,6 +253,7 @@ function iniciarReportaje(noticias) {
       <div class="articulo__cuerpo">
         ${noticia.cuerpo.map((p) => `<p>${p}</p>`).join('')}
       </div>
+      ${noticia.enlaceVideo ? `<p class="articulo__video-cta"><a class="btn btn-primario" href="${noticia.enlaceVideo}" target="_blank" rel="noopener">Ver video en Facebook</a></p>` : ''}
       <div class="compartir">
         <span>Compartir:</span>
         <a target="_blank" rel="noopener" href="https://api.whatsapp.com/send?text=${encodeURIComponent(noticia.titulo + ' - ' + window.location.href)}">WhatsApp</a>

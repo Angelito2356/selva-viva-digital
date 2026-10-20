@@ -30,49 +30,52 @@
     "resumen": "La Mancomunidad de Tránsito Aguarico Loreto socializó el proyecto que busca regular las tarifas de trnasporte comercial y de pasajeros en el cantón Loreto.",
     "cuerpo": [
       "En el auditorio de la Cía. de Taxis Rio Suno, el equipo técnico de la manunidad de Tránsito Aguarico Loreto (MATTTSEVAL) socializaron el proyecto para la realización de un estudio sobre tarifas para el transporte comercial y de pasajeros del cantón Loreto.",
-      "El proyecto busca ofrecer una guía técnica, en la que, los transportistas de las diferentes cooperativas de transporte comercial y de pasajeros, que brindan su servicio en el cantón Loreto, puedan mejorar sus ingresos en base al servicio que brinden."],
-     
+      "El proyecto busca ofrecer una guía técnica, en la que, los transportistas de las diferentes cooperativas de transporte comercial y de pasajeros, que brindan su servicio en el cantón Loreto, puedan mejorar sus ingresos en base al servicio que brinden."
+    ],
     "imagen": "assets/img/noticias/matttseval1.jpeg",
     "video": "",
     "fecha": "2026-10-19",
     "autor": "Angel Arregui · Selva Viva Digital / ADN Medio Digital"
   },
   {
-    "id": "matriculas-juan-pablo-ii",
+    "id": "cne-rueda-prensa-orellana-candidaturas-2027",
     "categoria": "Educación",
     "colorCategoria": "lima",
     "formato": "Noticia Local",
     "colorFormato": "ambar",
     "destacada": false,
-    "titulo": "Unidad Educativa Juan Pablo II abre su proceso de matrículas para el nuevo periodo lectivo",
-    "resumen": "La institución fiscomisional informa fechas, requisitos y valores de pensión para las familias interesadas en matricular a sus hijos para el próximo año lectivo.",
+    "titulo": "Rueda de prensa del CNE en Orellana: presentación oficial de candidaturas para las Elecciones Seccionales y CPCCS 2027",
+    "resumen": "Orellana | Miércoles 14 de octubre | 09H00. El Consejo Nacional Electoral presentó oficialmente en la provincia las candidaturas de cara a las Elecciones Seccionales y CPCCS 2027.",
     "cuerpo": [
-      "La Unidad Educativa Fiscomisional Juan Pablo II anunció el cronograma oficial de matrículas para el nuevo periodo lectivo, invitando a los padres de familia del cantón Loreto a acercarse a las instalaciones dentro de las fechas establecidas.",
-      "Entre los requisitos solicitados se encuentran los documentos de identificación del estudiante, el certificado de aprobación del año anterior y la ficha socioeconómica actualizada.",
-      "La institución destacó su propuesta educativa centrada en valores, formación humana y acompañamiento cercano a las familias de la comunidad amazónica."
+      "Orellana | Miércoles 14 de octubre | 09H00",
+      "Este miércoles, el Consejo Nacional Electoral (CNE) realizó en la provincia de Orellana la presentación oficial de candidaturas de cara a las Elecciones Seccionales y CPCCS 2027.",
+      "Selva Viva Digital estuvo presente en este importante momento para la democracia amazónica, para que tú estés informado con información directa, verificada y de primera mano.",
+      "Mira el video y entérate de lo que se dijo en esta rueda de prensa.",
+      "¿Qué opinas de este inicio del proceso electoral? Te leemos en los comentarios."
     ],
     "imagen": "assets/img/noticias/matriculas.svg",
     "video": "",
-    "fecha": "2026-07-10",
-    "autor": "Angel Arregui · ADN Medio Digital"
+    "fecha": "2026-10-14",
+    "autor": "Angel Arregui · ADN Medio Digital",
+    "enlaceVideo": "https://www.facebook.com/share/v/1DSfV55LVo/"
   },
   {
-    "id": "voces-selva-christian-luan",
+    "id": "voces-selva-veeduria-universidad-orellana",
     "categoria": "Voces de la Selva",
     "colorCategoria": "musgo",
     "formato": "Entrevista",
     "colorFormato": "lima",
     "destacada": false,
-    "titulo": "Voces de la Selva conversa con el artista Christian Luan sobre su proceso creativo en la Amazonía",
-    "resumen": "En un nuevo episodio del programa insignia de Selva Viva Digital, el artista Christian Luan comparte cómo su entorno amazónico influye en su obra y su identidad como creador.",
+    "titulo": "Voces de la Selva conversa con el representante de la veeduría ciudadana del proceso para la creación de la universidad estatal de Orellana y cómo avanza el proyecto hasta la fecha",
+    "resumen": "En un nuevo episodio del programa insignia de Selva Viva Digital, el ingeniero Ángel Villegas, representante de la veeduría para el proceso de creación de la universidad pública en Orellana, nos cuenta sobre el avance.",
     "cuerpo": [
-      "En esta edición de Voces de la Selva, el programa que recorre las historias humanas detrás de la vida amazónica, conversamos con el artista Christian Luan sobre su trayectoria y su vínculo con el territorio.",
-      "Luan describió cómo los sonidos, colores y ritmos de la selva se convierten en materia prima para su trabajo creativo, y reflexionó sobre el papel del arte como puente entre las comunidades amazónicas y el resto del país.",
-      "El episodio completo, con el testimonio íntegro del artista, está disponible en el canal de YouTube de ADN Medio Digital."
+      "En un nuevo episodio del programa insignia de Selva Viva Digital, el ingeniero Ángel Villegas, representante de la veeduría ciudadana para el proceso de creación de la universidad pública en Orellana, nos cuenta cómo avanza el proyecto hasta la fecha.",
+      "En esta edición de Voces de la Selva, el programa que recoge los temas de coyuntura más importantes para el desarrollo social de la provincia, conversamos sobre el trabajo de la veeduría y el estado actual del proceso para contar con una universidad estatal en Orellana.",
+      "El episodio completo, con el testimonio íntegro del ingeniero Ángel Villegas, está disponible en el canal de YouTube de ADN Medio Digital y puedes verlo en esta misma página."
     ],
     "imagen": "assets/img/noticias/voces-selva.svg",
-    "video": "",
-    "fecha": "2026-07-05",
+    "video": "FJWRjkmphRI",
+    "fecha": "2026-10-16",
     "autor": "Angel Arregui · Voces de la Selva"
   }
 ]
