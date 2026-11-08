@@ -1046,3 +1046,20 @@ a:hover > .play-badge { transform: scale(1.08); }
 .destacada__acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
 .destacada__acciones .btn { margin-top: 0; }
 @media (prefers-reduced-motion: reduce) { .play-badge { transition: none; } }
+
+/* Radio en línea: botón en la barra superior + bloque en En Vivo */
+.topbar__radio {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--heliconia); color: var(--tinta);
+  font-weight: 700; font-size: 0.78rem; line-height: 1;
+  padding: 6px 14px; border-radius: 999px; white-space: nowrap;
+  transition: background 0.2s;
+}
+.topbar__radio:hover { background: #f4937a; color: var(--tinta); text-decoration: none; }
+.topbar__radio-punto {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--tinta); animation: pulso 1.6s ease-in-out infinite;
+}
+.radio-bloque { padding: 8px 0 56px; }
+.radio-bloque__player { margin-top: 20px; max-width: 720px; border-radius: 14px; overflow: hidden; background: var(--selva); }
+.radio-bloque__player iframe { display: block; width: 100%; min-height: 200px; }

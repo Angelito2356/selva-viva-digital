@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=20261018">
-<link rel="stylesheet" href="assets/css/responsive.css?v=20261018">
+<link rel="stylesheet" href="assets/css/style.css?v=20261108">
+<link rel="stylesheet" href="assets/css/responsive.css?v=20261108">
 </head>
 <body class="oscuro">
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -21,6 +21,7 @@
       <div class="topbar__lugar"><span class="emoji-solo">📍</span> <span>Loreto · Orellana · Ecuador</span></div>
       <time class="topbar__fecha" data-fecha-hoy></time>
     </div>
+    <a class="topbar__radio" href="https://zeno.fm/player/adnmediodigital" target="radio-adn" rel="noopener" data-radio-popup aria-label="Escuchar la radio en vivo en una ventana aparte"><span class="topbar__radio-punto"></span> Radio en vivo</a>
     <div class="topbar__redes"><!-- Rellenado por social-links.js --></div>
   </div>
 </div>
@@ -64,6 +65,19 @@
       </p>
     </div>
   </section>
+  <section class="radio-bloque" id="radio">
+    <div class="contenedor">
+      <span class="badge-vivo"><span class="badge-vivo__punto"></span> Radio en línea</span>
+      <h2 style="margin-top:14px;">ADN Show Radio</h2>
+      <p style="max-width:640px;">Música romántica y clásicos del rock, en vivo las 24 horas. Dale play y sigue navegando: si quieres que la música no se corte al cambiar de página, ábrela en una ventana aparte.</p>
+      <div class="radio-bloque__player">
+        <iframe src="https://zeno.fm/player/adnmediodigital" title="ADN Show Radio en vivo" width="100%" height="200" loading="lazy" allow="autoplay" style="border:0;"></iframe>
+      </div>
+      <p style="margin-top:16px;">
+        <a class="btn btn-suscribir" href="https://zeno.fm/player/adnmediodigital" target="radio-adn" rel="noopener" data-radio-popup>📻 Abrir en ventana aparte</a>
+      </p>
+    </div>
+  </section>
 </main>
 
 <footer class="footer">
@@ -91,7 +105,7 @@
   <div class="footer__legal">© <span data-anio></span> Selva Viva Digital · ADN Medio Digital. Todos los derechos reservados.</div>
 </footer>
 
-<script src="assets/js/social-links.js?v=20261018"></script>
-<script src="assets/js/main.js?v=20261018"></script>
+<script src="assets/js/social-links.js?v=20261108"></script>
+<script src="assets/js/main.js?v=20261108"></script>
 </body>
 </html>

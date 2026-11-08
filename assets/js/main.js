@@ -49,3 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// Radio en línea: se abre en ventana aparte para que siga sonando al navegar por el sitio
+document.querySelectorAll('[data-radio-popup]').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    var w = window.open(a.href, 'radio-adn', 'width=440,height=300,menubar=no,toolbar=no,location=no,status=no');
+    if (w) { e.preventDefault(); w.focus(); }
+  });
+});
