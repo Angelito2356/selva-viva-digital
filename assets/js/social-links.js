@@ -101,9 +101,9 @@ function renderInfoContacto(selector, opts = {}) {
 
 // Se ejecuta automáticamente en cuanto carga cada página
 document.addEventListener("DOMContentLoaded", () => {
-  renderSocialLinks(".topbar__redes", ["youtube", "facebook", "instagram", "tiktok", "x"], { labelField: "label" });
-  renderSocialLinks(".footer__social", ["youtube", "facebook", "instagram", "tiktok", "x"], { labelField: "short" });
-  renderRedBotones("[data-red-botones]", ["youtube", "facebook", "instagram", "tiktok", "x", "whatsapp"]);
+  renderSocialLinks(".topbar__redes", ["youtube", "facebook", "x", "instagram", "tiktok"], { labelField: "label" });
+  renderSocialLinks(".footer__social", ["youtube", "facebook", "x", "instagram", "tiktok"], { labelField: "short" });
+  renderRedBotones("[data-red-botones]", ["youtube", "facebook", "x", "instagram", "tiktok", "whatsapp"]);
   renderContactList(".footer__contacto-lista");
   renderInfoContacto(".info-contacto__lista");
 });

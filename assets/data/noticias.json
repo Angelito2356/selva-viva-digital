@@ -93,5 +93,21 @@
     "enlaceExterno": "https://youtu.be/jFbWbcQluTE",
     "fecha": "2026-11-08",
     "autor": "ADN Producciones · Selva Viva Digital"
+  },
+  {
+    "id": "inauguracion-asfaltado-via-nueva-esperanza-chakayacu",
+    "categoria": "GAD Parroquial",
+    "colorCategoria": "verde",
+    "formato": "Reportaje",
+    "colorFormato": "verde",
+    "destacada": false,
+    "titulo": "Inauguración de la obra de asfaltado de la vía Nueva Esperanza – Chakayacu, sector La Floresta – Huaticocha",
+    "resumen": "Selva Viva Digital estuvo en la inauguración del asfaltado de la vía Nueva Esperanza – Chakayacu, sector La Floresta, en la parroquia San Vicente de Huaticocha, con la entrevista al presidente del GAD Parroquial, Alejandro Carreño.",
+    "cuerpo": [],
+    "imagen": "assets/img/noticias/inauguracion-via-la-floresta.jpg",
+    "video": "IQQU0bLBd0o",
+    "enlaceExterno": "https://youtu.be/IQQU0bLBd0o",
+    "fecha": "2026-09-25",
+    "autor": "Angel Arregui · Selva Viva Digital / ADN Medio Digital"
   }
 ]

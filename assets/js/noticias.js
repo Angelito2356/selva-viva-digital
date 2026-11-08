@@ -82,12 +82,32 @@ function tarjetaHTML(n, { media = true } = {}) {
 }
 
 function iniciarTicker(noticias) {
-  const pista = document.querySelector('[data-ticker]');
-  if (!pista || noticias.length === 0) return;
-  pista.innerHTML = noticias
-    .slice(0, 5)
-    .map((n) => `<span>${n.formato}:</span> <a href="${n.enlaceExterno || `reportaje.html?id=${n.id}`}"${n.enlaceExterno ? ' target="_blank" rel="noopener"' : ''}>${n.titulo}</a>`)
-    .join(' &nbsp; &nbsp; · &nbsp; &nbsp; ');
+  const texto = document.querySelector('[data-ticker]');
+  if (!texto || noticias.length === 0) return;
+
+  const enlace = (n) => n.enlaceExterno || `reportaje.html?id=${n.id}`;
+  const abrir = (n) => (n.enlaceExterno ? ' target="_blank" rel="noopener"' : '');
+  const grupo = noticias
+    .slice(0, 10)
+    .map(
+      (n) =>
+        `<span class="ticker__item"><span class="ticker__tipo">${n.formato}:</span> <a href="${enlace(n)}"${abrir(n)}>${n.titulo}</a></span>`
+    )
+    .join('');
+
+  // El contenido va dos veces para que el desplazamiento no tenga saltos.
+  texto.innerHTML = `<span class="ticker__carril"><span class="ticker__grupo">${grupo}</span><span class="ticker__grupo" aria-hidden="true">${grupo}</span></span>`;
+  const carril = texto.querySelector('.ticker__carril');
+  carril.lastElementChild.querySelectorAll('a').forEach((a) => a.setAttribute('tabindex', '-1'));
+
+  // Velocidad cómoda de lectura: ~55 px/s en escritorio y ~42 px/s en celular.
+  const ajustarVelocidad = () => {
+    const ancho = carril.firstElementChild.getBoundingClientRect().width;
+    const pxPorSegundo = window.matchMedia('(max-width: 560px)').matches ? 42 : 55;
+    carril.style.setProperty('--ticker-duracion', `${Math.max(25, Math.round(ancho / pxPorSegundo))}s`);
+  };
+  ajustarVelocidad();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustarVelocidad);
 }
 
 /**
@@ -281,10 +301,44 @@ function iniciarReportaje(noticias) {
   }
 }
 
+/**
+ * Las entrevistas de "Voces de la Selva" viven en voces.json. Aquí se
+ * convierten en tarjetas para que el filtro "Entrevistas" de la página de
+ * noticias muestre TODAS (cada una abre su video en YouTube). Si una
+ * entrevista ya tiene nota propia en noticias.json, no se repite.
+ */
+async function obtenerEntrevistasVoces(noticias) {
+  try {
+    const resp = await fetch('assets/data/voces.json', { cache: 'no-cache' });
+    if (!resp.ok) return [];
+    const episodios = await resp.json();
+    const yaEstan = new Set(noticias.map((n) => n.video).filter(Boolean));
+    return episodios
+      .filter((ep) => ep && ep.id && !yaEstan.has(ep.id))
+      .map((ep) => ({
+        id: `voces-${ep.id}`,
+        categoria: 'Voces de la Selva',
+        colorCategoria: 'musgo',
+        formato: 'Entrevista',
+        colorFormato: 'lima',
+        titulo: ep.titulo,
+        resumen: 'Programa Voces de la Selva. Mira la entrevista completa en nuestro canal de YouTube.',
+        imagen: `https://i.ytimg.com/vi/${ep.id}/hqdefault.jpg`,
+        video: ep.id,
+        enlaceExterno: `https://youtu.be/${ep.id}`,
+        fecha: ep.fecha,
+        autor: 'Voces de la Selva · Selva Viva Digital'
+      }));
+  } catch (e) {
+    return [];
+  }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   const noticias = await obtenerNoticias();
   iniciarTicker(noticias);
   iniciarInicio(noticias);
-  iniciarPaginaNoticias(noticias);
+  const entrevistas = document.querySelector('[data-grid-noticias]') ? await obtenerEntrevistasVoces(noticias) : [];
+  iniciarPaginaNoticias([...noticias, ...entrevistas].sort((a, b) => new Date(b.fecha) - new Date(a.fecha)));
   iniciarReportaje(noticias);
 });

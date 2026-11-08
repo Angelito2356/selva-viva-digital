@@ -337,7 +337,7 @@ a:hover { color: var(--hoja); text-decoration: underline; }
 }
 .ticker__texto a { color: #fff; text-decoration: underline; text-decoration-color: rgba(242, 179, 61, 0.7); text-underline-offset: 3px; }
 .ticker__texto a:hover { color: var(--lima); }
-.ticker__texto span { font-weight: 800; color: var(--mango); margin-right: 2px; }
+.ticker__tipo { font-weight: 800; color: var(--mango); margin-right: 2px; }
 
 /* =========================================================
    Héroe (portada y En Vivo)
@@ -1160,3 +1160,45 @@ a:hover > .play-badge { transform: scale(1.08); }
 .cob-item__fecha { color: var(--tinta-suave); font-size: 0.76rem; }
 .cob-item:hover { background: var(--niebla); }
 .cob-item.activo { background: rgba(242, 179, 61, 0.16); border-color: rgba(242, 179, 61, 0.7); }
+
+/* ---- Ticker "Última hora": desplazamiento continuo y legible ---- */
+.ticker__texto { overflow: hidden; }
+.ticker__carril {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker-desplazar var(--ticker-duracion, 60s) linear infinite;
+  will-change: transform;
+}
+.ticker__grupo { display: inline-block; flex: none; }
+.ticker__item::after { content: "•"; margin: 0 28px; color: var(--mango); }
+.ticker:hover .ticker__carril,
+.ticker:focus-within .ticker__carril { animation-play-state: paused; }
+@keyframes ticker-desplazar { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .ticker__pista { overflow-x: auto; }
+  .ticker__carril { animation: none; }
+}
+
+/* ---- Alerta "EN VIVO AHORA" ---- */
+@keyframes envivo-brillo {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(217, 45, 32, 0.7), 0 4px 14px rgba(217, 45, 32, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(217, 45, 32, 0), 0 4px 18px rgba(217, 45, 32, 0.6); }
+}
+.envivo__punto { width: 10px; height: 10px; border-radius: 50%; background: #fff; animation: pulso 1s ease-in-out infinite; }
+.topbar__envivo, .envivo-flotante {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: #d92d20; color: #fff; font-weight: 800; letter-spacing: 0.04em; line-height: 1;
+  border-radius: 999px; white-space: nowrap;
+  animation: envivo-brillo 1.6s ease-out infinite;
+  transition: transform 0.2s;
+}
+.topbar__envivo { font-size: 0.86rem; padding: 9px 18px; }
+.topbar__envivo:hover, .envivo-flotante:hover { background: #b42318; color: #fff; text-decoration: none; transform: scale(1.05); }
+.envivo-flotante { position: fixed; left: 18px; bottom: 76px; z-index: 91; font-size: 0.88rem; padding: 13px 20px; }
+.topbar__acciones { flex-wrap: wrap; justify-content: center; gap: 10px; }
+@media (max-width: 640px) {
+  .envivo-flotante { left: 12px; bottom: 70px; padding: 11px 15px; font-size: 0.78rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .topbar__envivo, .envivo-flotante, .envivo__punto { animation: none; }
+}

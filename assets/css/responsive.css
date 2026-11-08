@@ -97,3 +97,12 @@
   .cob-ficha h3 { font-size: 1.12rem; }
   .cob-item { grid-template-columns: 88px 1fr; }
 }
+
+/* ---- Tagline "El Pulso Amazónico" visible también en celular ---- */
+@media (max-width: 899px) {
+  .nav__marca { gap: 10px; min-width: 0; }
+  .nav__marca .nav__tagline { display: inline-block; font-size: 0.86rem; padding-left: 10px; white-space: nowrap; }
+}
+@media (max-width: 360px) {
+  .nav__marca .nav__tagline { font-size: 0.74rem; padding-left: 8px; }
+}
