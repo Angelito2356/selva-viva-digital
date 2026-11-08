@@ -54,10 +54,15 @@ async function obtenerNoticias() {
  * media:false -> tarjeta compacta sin imagen (usada en secciones de portada)
  */
 function tarjetaHTML(n, { media = true } = {}) {
+  // Si la nota trae "enlaceExterno" (p. ej. un video de YouTube), la tarjeta
+  // va directo a ese enlace y usa "imagen" como miniatura.
+  const externo = Boolean(n.enlaceExterno);
+  const href = externo ? n.enlaceExterno : `reportaje.html?id=${n.id}`;
+  const abrir = externo ? ' target="_blank" rel="noopener"' : '';
   const mediaHTML = media
     ? `
-      <a class="tarjeta__media" href="reportaje.html?id=${n.id}">
-        ${n.video
+      <a class="tarjeta__media" href="${href}"${abrir}>
+        ${n.video && !externo
           ? `<img src="https://i.ytimg.com/vi/${n.video}/hqdefault.jpg" alt="${n.titulo}" loading="lazy" onerror="this.onerror=null;this.src='${n.imagen}'">`
           : `<img src="${n.imagen}" alt="${n.titulo}" loading="lazy">`}
       </a>`
@@ -68,7 +73,7 @@ function tarjetaHTML(n, { media = true } = {}) {
       ${mediaHTML}
       <div class="tarjeta__cuerpo">
         <span class="etiqueta etiqueta--${n.colorFormato}">${n.formato}</span>
-        <h3><a href="reportaje.html?id=${n.id}">${n.titulo}</a></h3>
+        <h3><a href="${href}"${abrir}>${n.titulo}</a></h3>
         <p class="tarjeta__resumen">${n.resumen}</p>
         <p class="tarjeta__meta">${formatearFecha(n.fecha)} · ${n.autor}</p>
       </div>
@@ -81,7 +86,7 @@ function iniciarTicker(noticias) {
   if (!pista || noticias.length === 0) return;
   pista.innerHTML = noticias
     .slice(0, 5)
-    .map((n) => `<span>${n.formato}:</span> <a href="reportaje.html?id=${n.id}">${n.titulo}</a>`)
+    .map((n) => `<span>${n.formato}:</span> <a href="${n.enlaceExterno || `reportaje.html?id=${n.id}`}"${n.enlaceExterno ? ' target="_blank" rel="noopener"' : ''}>${n.titulo}</a>`)
     .join(' &nbsp; &nbsp; · &nbsp; &nbsp; ');
 }
 

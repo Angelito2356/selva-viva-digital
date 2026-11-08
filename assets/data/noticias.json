@@ -77,5 +77,21 @@
     "video": "FJWRjkmphRI",
     "fecha": "2026-10-16",
     "autor": "Angel Arregui · Voces de la Selva"
+  },
+  {
+    "id": "plan-maestro-loreto-produccion-audiovisual",
+    "categoria": "GAD Municipal",
+    "colorCategoria": "verde",
+    "formato": "Producción Audiovisual",
+    "colorFormato": "rojo",
+    "destacada": false,
+    "titulo": "Plan Maestro de agua potable y alcantarillado de Loreto: producción audiovisual con tomas aéreas de la obra",
+    "resumen": "Una producción de ADN Producciones que recorre desde el aire el avance de las obras del Plan Maestro de agua potable y alcantarillado en Loreto.",
+    "cuerpo": [],
+    "imagen": "assets/img/noticias/plan-maestro.jpg",
+    "video": "jFbWbcQluTE",
+    "enlaceExterno": "https://youtu.be/jFbWbcQluTE",
+    "fecha": "2026-11-08",
+    "autor": "ADN Producciones · Selva Viva Digital"
   }
 ]
