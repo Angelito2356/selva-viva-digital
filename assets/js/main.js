@@ -57,3 +57,20 @@ document.querySelectorAll('[data-radio-popup]').forEach(function (a) {
     if (w) { e.preventDefault(); w.focus(); }
   });
 });
+
+// Botón flotante de la radio (visible mientras se recorre la página)
+(function () {
+  var a = document.createElement('a');
+  a.className = 'radio-flotante';
+  a.href = 'https://zeno.fm/player/adnmediodigital';
+  a.target = 'radio-adn';
+  a.rel = 'noopener';
+  a.setAttribute('data-radio-popup', '');
+  a.setAttribute('aria-label', 'Escuchar la radio en vivo en una ventana aparte');
+  a.innerHTML = '<span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="txt">Radio en vivo</span>';
+  document.body.appendChild(a);
+  a.addEventListener('click', function (e) {
+    var w = window.open(a.href, 'radio-adn', 'width=440,height=300,menubar=no,toolbar=no,location=no,status=no');
+    if (w) { e.preventDefault(); w.focus(); }
+  });
+})();
