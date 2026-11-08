@@ -14,8 +14,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=20261108b">
-<link rel="stylesheet" href="assets/css/responsive.css?v=20261108b">
+<link rel="stylesheet" href="assets/css/style.css?v=20261108c">
+<link rel="stylesheet" href="assets/css/responsive.css?v=20261108c">
 </head>
 <body class="oscuro">
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -90,7 +90,7 @@
         </div>
       </div>
       <div class="hero-video__texto">
-        <span class="badge-vivo badge-vivo--quieto"><span class="badge-vivo__punto"></span> Video destacado</span>
+        <a class="badge-vivo badge-vivo--quieto badge-vivo--enlace" href="#coberturas"><span class="badge-vivo__punto"></span> Video destacado</a>
         <h1>El Pulso Amazónico de Loreto, Orellana</h1>
         <p>Reportajes, entrevistas, coberturas y producción audiovisual desde el corazón de la Amazonía ecuatoriana. Periodismo hecho en el territorio, para el territorio.</p>
         <div class="hero-video__acciones">
@@ -137,6 +137,37 @@
         <aside class="estudio__lista" aria-label="Más entrevistas de Voces de la Selva">
           <h3>Más entrevistas</h3>
           <div class="voces-lista" data-voces-lista></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="coberturas" id="coberturas" data-coberturas hidden>
+    <div class="contenedor">
+      <header class="coberturas__cabecera">
+        <div>
+          <h2>Coberturas</h2>
+          <p>Eventos, ruedas de prensa y actividades de Loreto y Orellana, desde el lugar de los hechos.</p>
+        </div>
+        <a class="ver-todas" href="noticias.html?formato=Cobertura">Ver todas las coberturas →</a>
+      </header>
+
+      <div class="cob-grid">
+        <div class="cob-pantalla">
+          <div data-cob-pantalla></div>
+          <div class="cob-ficha">
+            <h3 data-cob-titulo></h3>
+            <p class="cob-ficha__meta" data-cob-meta></p>
+            <p class="cob-ficha__resumen" data-cob-resumen></p>
+            <div class="cob-ficha__acciones">
+              <a class="btn btn-chico btn-primario" data-cob-nota href="noticias.html?formato=Cobertura">Leer la nota</a>
+              <a class="btn btn-chico btn-fantasma" data-cob-youtube href="https://www.youtube.com/@ADNMedioDigital" target="_blank" rel="noopener" hidden>▶ Ver en YouTube</a>
+            </div>
+          </div>
+        </div>
+        <aside class="cob-lista-caja" aria-label="Más coberturas">
+          <h3>Más coberturas</h3>
+          <div class="cob-lista" data-cob-lista></div>
         </aside>
       </div>
     </div>
@@ -197,10 +228,11 @@
   <div class="footer__legal">© <span data-anio></span> Selva Viva Digital · ADN Medio Digital. Todos los derechos reservados.</div>
 </footer>
 
-<script src="assets/js/social-links.js?v=20261108b"></script>
-<script src="assets/js/hero-carrusel.js?v=20261108b"></script>
-<script src="assets/js/noticias.js?v=20261108b"></script>
-<script src="assets/js/voces.js?v=20261108b"></script>
-<script src="assets/js/main.js?v=20261108b"></script>
+<script src="assets/js/social-links.js?v=20261108c"></script>
+<script src="assets/js/coberturas.js?v=20261108c"></script>
+<script src="assets/js/hero-carrusel.js?v=20261108c"></script>
+<script src="assets/js/noticias.js?v=20261108c"></script>
+<script src="assets/js/voces.js?v=20261108c"></script>
+<script src="assets/js/main.js?v=20261108c"></script>
 </body>
 </html>

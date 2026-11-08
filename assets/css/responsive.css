@@ -85,3 +85,15 @@
   .ticker__marca { font-size: 0.75rem; padding: 10px 22px 10px 12px; }
   .ticker__texto { font-size: 0.82rem; }
 }
+
+/* ---- Coberturas ---- */
+@media (max-width: 1000px) {
+  .cob-grid { grid-template-columns: 1fr; }
+  .cob-lista { position: static; max-height: 380px; margin: 0 4px; }
+}
+@media (max-width: 900px) {
+  .coberturas { padding: 44px 0 40px; }
+  .cob-pantalla { padding: 8px 8px 6px; border-radius: 18px; }
+  .cob-ficha h3 { font-size: 1.12rem; }
+  .cob-item { grid-template-columns: 88px 1fr; }
+}
