@@ -1,7 +1,10 @@
 {
-  "activo": false,
-  "desde": "",
-  "hasta": "",
-  "titulo": "Transmisión en vivo de Selva Viva Digital",
+  "activo": true,
+  "titulo": "Voces de la Selva: Camino a las Seccionales, conociendo al candidato",
+  "descripcion": "Invitado especial: Tnlgo. Jiovanny Dominguez",
+  "inicio": "2026-11-10T19:30:00-05:00",
+  "desde": "2026-11-10T19:30:00-05:00",
+  "hasta": "2026-11-10T21:30:00-05:00",
+  "anunciarHoras": 72,
   "enlace": "en-vivo.html"
 }

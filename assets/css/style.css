@@ -1202,3 +1202,28 @@ a:hover > .play-badge { transform: scale(1.08); }
 @media (prefers-reduced-motion: reduce) {
   .topbar__envivo, .envivo-flotante, .envivo__punto { animation: none; }
 }
+
+/* ---- Franja destacada del inicio: PRÓXIMA TRANSMISIÓN / EN VIVO AHORA ---- */
+.envivo-franja { background: var(--selva-800); border-bottom: 1px solid rgba(255, 255, 255, 0.08); color: var(--sobre-selva); }
+.envivo-franja[data-modo="vivo"] { background: linear-gradient(90deg, #b42318, #d92d20); color: #fff; }
+.envivo-franja__in { display: flex; align-items: center; gap: 16px; padding-top: 12px; padding-bottom: 12px; flex-wrap: wrap; }
+.envivo-franja__etiqueta {
+  display: inline-flex; align-items: center; gap: 8px; flex: none;
+  background: #fff; color: #b42318; font-weight: 800; font-size: 0.82rem; letter-spacing: 0.05em;
+  padding: 8px 14px; border-radius: 999px; line-height: 1;
+}
+.envivo-franja__etiqueta .envivo__punto { background: #d92d20; }
+.envivo-franja__etiqueta--proxima { background: var(--mango); color: var(--tinta); }
+.envivo-franja__texto { margin: 0; flex: 1 1 260px; min-width: 0; line-height: 1.3; font-size: 0.98rem; }
+.envivo-franja__texto strong { font-weight: 800; }
+.envivo-franja__texto span { opacity: 0.85; }
+.envivo-franja__cuenta { display: inline-flex; align-items: baseline; gap: 8px; flex: none; }
+.envivo-franja__cuenta small { font-size: 0.78rem; opacity: 0.8; }
+.envivo-franja__cuenta b { font-size: 1.25rem; font-variant-numeric: tabular-nums; color: var(--mango); letter-spacing: 0.02em; }
+.envivo-franja__btn { flex: none; }
+.envivo-franja[data-modo="vivo"] .envivo-franja__btn { background: #fff; color: #b42318; }
+@media (max-width: 640px) {
+  .envivo-franja__in { gap: 10px; }
+  .envivo-franja__texto { font-size: 0.9rem; flex-basis: 100%; order: 3; }
+  .envivo-franja__btn { order: 4; width: 100%; text-align: center; justify-content: center; }
+}
