@@ -1227,3 +1227,11 @@ a:hover > .play-badge { transform: scale(1.08); }
   .envivo-franja__texto { font-size: 0.9rem; flex-basis: 100%; order: 3; }
   .envivo-franja__btn { order: 4; width: 100%; text-align: center; justify-content: center; }
 }
+
+/* ---- Contador de visitas (pie de página) ---- */
+.footer__visitas { display: inline-block; margin-left: 14px; padding-left: 14px; border-left: 1px solid rgba(255, 255, 255, 0.18); white-space: nowrap; }
+.footer__visitas[hidden] { display: none; }
+.footer__visitas img { vertical-align: middle; }
+@media (max-width: 640px) {
+  .footer__visitas { display: block; margin: 8px 0 0; padding-left: 0; border-left: 0; }
+}
